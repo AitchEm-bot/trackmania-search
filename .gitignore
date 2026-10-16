@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+logs/
+
+# Large media: published as GitHub Release assets (see README "Videos and large files")
+video/*.mp4
+video/raw/*.mp4
+deck/claude_design/B01_deck_editable.pptx
+deck/claude_design/B01_deck_pixel_perfect.pptx
+deck/claude_design/B01_deck_project_source.zip

@@ -1,0 +1,65 @@
+SPEAKER NOTES - Can a search algorithm beat my Trackmania PB? (CSCI218, B01-Race)
+(Exported from the Claude Design deck; same text as the presenter notes.)
+
+01 Title
+Open with the question and both results. The goal was to beat my best time on B01-Race, 27.82 seconds, and the gold medal, 27.80. The AI did that and finished at 27.28. Then we got more ambitious and started it from the human world record, 25.23 by oli10: it reproduced it exactly and beat it, 25.21. Every run was checked in the real game. The ghost number in the background is my PB, the time we set out to beat.
+
+02 Intro video
+A 15-second motion intro: my PB 27.82, the gold medal 27.80, the AI at 27.28, the human world record 25.23 by oli10, and the AI at 25.21. Let it play, then go to the goal.
+
+03 The goal
+B01-Race is a map in TrackMania Nations Forever. The medal times: bronze 39.68, silver 31.62, gold 27.80, author 26.20. My personal best is 27.82, with checkpoints at 6.20 and 17.55, so I was two hundredths short of gold. The human world record is 25.23 by oli10, a normal gamepad run with no tool assistance, uploaded to TMNF-X in September 2024. Our question: can a search algorithm, driving the real game physics, beat my PB and the gold medal?
+
+04 Search problem
+Frame it as a search problem. A state is the full car state at one physics tick. An action is a combination of the four keys held for 50 milliseconds, and the cost is race time. With 8 useful combinations every 50 ms over about 556 steps there are roughly 10 to the 502 possible runs, so exhaustive search is impossible. Determinism is what makes search possible at all: the same inputs from the same state always produce exactly the same result, so we can save a state, branch from it and replay it.
+
+05 The system
+The key design decision: we do not model the car. The game itself is the simulator. TMInterface 2.2.1, loaded through ModLoader, is a tool-assisted-speedrun mod that lets a plugin save and restore the full game state. We wrote our own AngelScript plugin, SearchBridge, with a small TCP protocol: save and restore a car state, step the physics with a set of keys held for N ticks, and stream frames back. Our Python package, tmsearch, runs the searches against it. The game advances in 10 ms physics ticks and is deterministic, so a state can be saved, branched and replayed exactly. The plugin blocks the finish so no search run is ever saved as a real record.
+
+06 Telemetry
+Before searching, we validated the pipeline against reality. TMNF replays store the driver's inputs and embed the map file, which also gave us the medal times. Re-driving my run tick by tick through the plugin gave exactly 27.820 seconds, the same as the replay, so the plugin's stepping matches the game. The re-drive also gives the reference line: the car's position every 10 ms along my PB. Progress along that line is the search heuristic, and it is used to prune runs that leave the track or fall behind.
+
+07 Beam search
+Our first algorithm is a beam search layered by race time, with beam width 40. Every step holds one of 8 key combinations for 5 physics ticks, 50 ms, so all states in a layer share the same race time and can be compared fairly. The heuristic is progress along the reference line: how far ahead of my PB ghost a state is, projected 0.3 s forward using its speed. Pruning drops states that leave a corridor around my line, fall more than 0.6 s behind, or miss a checkpoint, and merges near-identical states. My own run is replayed alongside, so the result can never be worse than my PB. In 20 minutes it made 177,163 expansions and found 27.66: 0.16 s faster than my PB, already beating gold.
+
+08 Why it stalled
+The beam search is greedy with a short horizon. Lines that carried extra speed into a corner looked best for 0.3 seconds and then lost everything in the corner, while my steadier line survived. We saw a 45 ms lead at 5 s vanish by 6 s, and a 96 ms lead at 22 s vanish by 23 s. That is the classic myopia of beam search with a short-horizon heuristic. The chart shows where its 0.16 s came from: it follows my line almost exactly and gains only at the final drop. This motivated the second algorithm, local search, which judges every change by the finish time of the whole run.
+
+09 We watched it drive
+After the beam search beat gold in 20 minutes, we watched its runs and gave visual feedback. Three observations turned into concrete changes. First, the gold medal ghost was taking the early turns faster, so we added time warp and gave each section of the track its own worker; honestly, none of the early tweaks turned out faster, so my early line was already close to a local optimum. Second, the AI braked before the last turns and slid, so we added moves that lift off the throttle instead of braking; the search kept 111 tweaks there, mostly getting back on the throttle sooner and staying on it longer. Third, the middle section and the final jump looked right, so we only ever keep a change if the whole run finishes faster, which protects them. The clip is the final AI run with its live data panel: race time, speed and the gap to my PB ghost.
+
+10 Local search
+The second algorithm is local search: hill climbing over the input sequence. A move shifts a key press or release by a few ticks, adds a short tap, lifts off the throttle, replaces braking with lifting, or nudges or shifts the analog steering. Each candidate is re-simulated in the game from a cached state just before the change, all the way to the finish, and kept only if it finishes earlier. Candidates that fall 150 ms behind are rejected early. Unlike the beam, it judges every change by the full run, so it cannot be fooled by a short-term gain. In 30 minutes it evaluated 4,723 candidates, accepted 125, and brought the time from 27.66 to 27.42.
+
+11 Parallel local search
+To use more CPU we ran four copies of the game, each with its own plugin port and its own search worker, sharing one best-run file. Each worker tweaked a different section of the run; whenever one found a faster run it wrote it to the shared file and the others adopted it, a simple parallel hill climb. For early changes we added time warp: after a change, the rest of the run's inputs are shifted by the number of ticks the car gained, so they line up with the track again. The results were lopsided: in the first 20 seconds no tweak was faster, while the final section produced 111 kept tweaks. Together they brought 27.42 down to 27.28, 0.54 s under my PB.
+
+12 Learning curve
+This is the whole optimisation on one chart: best finish time against search time. The beam search ran for 20 minutes and produced one jump from 27.82 to 27.66. Local search then made steady small steps, mostly 10 ms each, down to 27.42. The parallel phase on four game instances took it to 27.28 after 86 minutes. Gold was beaten after the first 20 minutes; the remaining gains get smaller and harder to find, which is typical of hill climbing near a local optimum.
+
+13 What the AI changed
+These are the largest individual changes the parallel search kept. Almost every gain is about throttle timing in the last six seconds: getting back on the throttle sooner after a turn, or staying on it a little longer before the final drop. The single biggest was pressing the throttle 20 ms earlier at 21.55 s, worth 30 ms at the finish. These are changes a human could understand and practise, even if hitting them to the hundredth is hard. The clip shows the final drop in slow motion, where most of these changes happen.
+
+14 Algorithms compared
+To compare search strategies fairly we gave every method the same game, the same 8 actions held for 50 ms and the same pruning. A* got a budget of 180,000 game steps, which is what beam width 40 needed to finish. f = g + w·h, where g is the race time so far. We tried two heuristics. The distance heuristic is the remaining length of the reference line divided by 1000 km/h, the game's speed cap: the car can never go faster than that, so it never overestimates and is admissible. The PB heuristic is the time my PB still needed from that point: better informed, but not admissible. No A* run finished. Plain A* with the distance heuristic covered only 3% of the track, 71 metres; the furthest, weighted A* with w = 1.5 and the PB heuristic, reached 12%, 258 metres. The admissible heuristic makes A* explore breadth-first in time, weighting makes it dive into slow branches that pruning then cuts, and the PB heuristic plateaus at f ≈ 27.82. Beam search bounds the work per 50 ms layer and always finishes, but widths 1, 10 and 20 only reproduced my 27.82; only width 40 beat it, with 27.66. Width 10 was run twice with identical inputs, time and step count, which shows the game and the search are deterministic. The A* runs shared the CPU with another job overnight, so game steps, not minutes, is the fair cost column.
+
+15 Repeated runs
+One run of a stochastic search proves little, so we repeated local search from my PB with 5 random seeds and the same budget each: 1,500 evaluations, 11 to 14 minutes each on one game. The seeds finished at 27.41, 27.10, 27.18, 27.43 and 27.29: a mean of 27.28 with a sample standard deviation of 0.14 s, best 27.10, worst 27.43. All 5 beat gold, with an average gain of 0.54 s over my PB. So the method is reliable, but the spread is wide: the best seed, 27.10 in 13 minutes on one game, beat our 86-minute four-game pipeline at 27.28. Which improvements a hill climber finds first depends on the seed, which suggests several short restarts can be worth more than one long run.
+
+16 Results
+Final result for the main experiment: starting from my own run, the AI finishes in 27.28 seconds, 0.54 s faster than my PB and 0.52 s under gold. Every time here was verified by re-running the inputs from the race start in the real game. For perspective: the author medal is 26.20 and the human world record, 25.23 by oli10, a normal driven run with no tool assistance, is still 2.05 s faster. Our search only refines the line it starts from, so it cannot discover the faster route a world-class player drives. Later: what happens when the AI starts from that world-record line instead. One more row comes from the repeated-runs experiment: the best of the 5 local-search seeds reached 27.10 in 13 minutes on one game. The big number, 27.28, is the main pipeline, the run you see in the videos.
+
+17 My PB vs the AI
+My PB and the AI at the same moment in the race, then the landing again at 0.4 times speed. The lines are almost identical from above; the chart on the right shows that the AI gains nothing in the early part of the track and then pulls away through the last corners and the final drop, finishing at 27.28 against my 27.82.
+
+18 The world record
+Beating my PB turned out to be the easy part, so we got more ambitious and took on the human world record: 25.23 by oli10, a normal gamepad run uploaded to TMNF-X in September 2024. He drove with a gamepad, so we added analog steering support. Re-driven through our pipeline, his run finished at exactly 25.230, so our system reproduces the world record precisely. Then four local-search workers tweaked his inputs. The first faster run came after only 941 tries, about 1.3 minutes: steering 3 percent more to the left for 280 milliseconds at 19.69 seconds. After 24,846 tries, 75 accepted, in 35 minutes, the AI reached 25.21, 0.02 seconds under the world record. This is his line plus machine precision, and it is tool-assisted, so it is not a record and was never uploaded.
+
+19 The runs on video
+The demo video, about two minutes, recorded from the real game with one frame per physics tick and three camera angles. It shows the AI's 27.28 run with a live data panel and my PB ghost alongside; the last corners and the final drop in slow motion; my PB against the AI side by side; the learning curve and the tweaks the search kept; and finally oli10's 25.23 world record against the AI's 25.21 on his line. Click the frame to start it.
+
+20 Limitations
+Threats to validity. One map and one PB, so we cannot claim it generalises. The local search only refines the line it starts from: from my line it is still 2.05 s off the world record, and finding new routes would need a different method. Pruning ties the search to the reference line and can cut out better lines. Exported TMInterface scripts do not reproduce the runs, so we always replay through our own plugin. All runs are tool-assisted and kept offline; the plugin blocks finishes so nothing is saved as a record.
+
+21 Closing
+Close on the headline: 27.82 to 27.28, a 0.54 s improvement on my best run found entirely by search in the real game; and starting from the human world record, 25.23 to 25.21. Next steps: try other maps; a search that is not tied to one reference line, so it can find new routes; and use these optimised runs as training data for a learned policy. Then take questions.

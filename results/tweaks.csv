@@ -1,0 +1,26 @@
+stage,t_s,race_time_s,change,gain_ms,finish_ms,kind,evals
+local search,85.0,23.61,input change at 23.61 s,10,27650,,
+local search,182.0,25.75,input change at 25.75 s,10,27640,,
+local search,413.0,24.15,input change at 24.15 s,70,27570,,
+local search,430.0,18.95,input change at 18.95 s,10,27560,,
+local search,592.0,19.99,input change at 19.99 s,10,27550,,
+local search,639.0,22.4,input change at 22.40 s,10,27540,,
+local search,688.0,18.0,input change at 18.00 s,10,27530,,
+local search,698.0,21.66,input change at 21.66 s,10,27520,,
+local search,731.0,19.97,input change at 19.97 s,10,27510,,
+local search,738.0,18.74,input change at 18.74 s,10,27500,,
+local search,828.0,18.07,input change at 18.07 s,10,27490,,
+local search,1006.0,21.55,input change at 21.55 s,40,27450,,
+local search,1017.0,22.96,input change at 22.96 s,10,27440,,
+local search,1160.0,25.79,input change at 25.79 s,10,27430,,
+local search,1455.0,25.67,input change at 25.67 s,10,27420,,
+parallel (w3-end-23),7.533940982818604,23.84,brake release 10 ms earlier at 23.85 s,10,27410,shift,5
+parallel (w3-end-23),188.3339409828186,25.66,throttle press 10 ms earlier at 25.67 s,10,27400,shift,970
+parallel (w3-end-23),215.3339409828186,25.6,tap throttle for 20 ms at 25.60 s,10,27390,tap,1124
+parallel (w3-end-23),230.7339409828186,21.53,throttle press 20 ms earlier at 21.55 s,30,27360,shift,1204
+parallel (w3-end-23),271.5339409828186,25.5,throttle release 40 ms later at 25.50 s,20,27340,shift,1406
+parallel (w4b-all-34),770.4489936351777,25.76,throttle release 20 ms later at 25.76 s,10,27330,shift,1065
+parallel (w3b-end-33),1007.6845468997956,25.77,throttle press 20 ms earlier at 25.79 s,10,27320,shift,3179
+parallel (w4b-all-34),1131.0489936351776,25.62,throttle release 40 ms later at 25.62 s,20,27300,shift,2053
+parallel (w3b-end-33),1321.0845468997954,25.56,throttle press 40 ms earlier at 25.60 s,10,27290,shift,4919
+parallel (w3b-end-33),1457.8845468997956,25.54,throttle release 30 ms later at 25.54 s,10,27280,shift,5735

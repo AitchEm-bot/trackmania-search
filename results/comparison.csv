@@ -1,0 +1,12 @@
+method,heuristic,param,finished,finish_ms,expansions,seconds,progress_pct,file
+"Beam search, width 1  (greedy)",PB ghost (ranking),1,True,27820,11182,88.9,100.0,results\compare\b1_s5_cmp_27820.json
+"Beam search, width 10 (run 1)",PB ghost (ranking),10,True,27820,49534,389.3,100.0,results\compare\b10_s5_cmpA_27820.json
+"Beam search, width 10 (run 2)",PB ghost (ranking),10,True,27820,49534,388.6,100.0,results\compare\b10_s5_cmpB_27820.json
+"Beam search, width 20",PB ghost (ranking),20,True,27820,92174,732.0,100.0,results\compare\b20_s5_cmp_27820.json
+"Beam search, width 40 (main run)",PB ghost (ranking),40,True,27660,177163,1196.8,100.0,results\b40_s5_full_27660.json
+A*,distance / 1000 km/h,1.0,False,,180000,1407.2,3.369771863117871,results\compare\astar_dnf.json
+Weighted A* (w = 5),distance / 1000 km/h,5.0,False,,180000,1422.4,4.729087452471483,results\compare\wastar5_dnf.json
+Weighted A* (w = 20),distance / 1000 km/h,20.0,False,,180000,1406.6,10.89828897338403,results\compare\wastar20_dnf.json
+A* + PB heuristic,PB time left,1.0,False,,180000,1449.3,9.4106463878327,results\compare\astar_pb_dnf.json
+Weighted A* (w = 1.5) + PB heuristic,PB time left,1.5,False,,180000,1427.4,12.281368821292775,results\compare\wastar1.5_pb_dnf.json
+Weighted A* (w = 2) + PB heuristic,PB time left,2.0,False,,180000,1521.0,11.002851711026617,results\compare\wastar2_pb_dnf.json

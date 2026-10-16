@@ -1,0 +1,47 @@
+OVERNIGHT EXPERIMENTS - B01-Race (one game instance)
+====================================================
+
+My PB: 27.82 s   Gold: 27.80 s
+
+1. SEARCH ALGORITHMS COMPARED
+------------------------------
+Same actions (8 key combinations held for 50 ms), same pruning, same game.
+A*/weighted A*: f = g + w*h, g = race time so far.
+  distance heuristic: remaining track length / 1000 km/h (admissible: never overestimates)
+  PB heuristic: time my PB still needed from that point (better informed, not admissible)
+Budget for A*: 180,000 game steps (what beam search width 40 needed to finish).
+
+| Method | Heuristic | Result | vs my PB | Game steps (expansions) | Time |
+|---|---|---|---|---|---|
+| My PB (human baseline) | - | 27.82 s | - | - | - |
+| Beam search, width 1  (greedy) | PB ghost (ranking) | 27.82 s | +0.00 s | 11,182 | 1.5 min |
+| Beam search, width 10 (run 1) | PB ghost (ranking) | 27.82 s | +0.00 s | 49,534 | 6.5 min |
+| Beam search, width 10 (run 2) | PB ghost (ranking) | 27.82 s | +0.00 s | 49,534 | 6.5 min |
+| Beam search, width 20 | PB ghost (ranking) | 27.82 s | +0.00 s | 92,174 | 12.2 min |
+| Beam search, width 40 (main run) | PB ghost (ranking) | 27.66 s | -0.16 s | 177,163 | 19.9 min |
+| A* | distance / 1000 km/h | no finish (3% of the track) | - | 180,000 | 23.5 min |
+| Weighted A* (w = 5) | distance / 1000 km/h | no finish (5% of the track) | - | 180,000 | 23.7 min |
+| Weighted A* (w = 20) | distance / 1000 km/h | no finish (11% of the track) | - | 180,000 | 23.4 min |
+| A* + PB heuristic | PB time left | no finish (9% of the track) | - | 180,000 | 24.2 min |
+| Weighted A* (w = 1.5) + PB heuristic | PB time left | no finish (12% of the track) | - | 180,000 | 23.8 min |
+| Weighted A* (w = 2) + PB heuristic | PB time left | no finish (11% of the track) | - | 180,000 | 25.4 min |
+
+Determinism: beam width 10 run twice -> identical inputs and finish time.
+
+2. REPEATED RUNS (local search from my PB)
+------------------------------------------
+5 seeds x 1,500 evaluations each.
+
+| Seed | Finish | vs my PB | Accepted tweaks | Evaluations | First beat gold after |
+|---|---|---|---|---|---|
+| 1 | 27.41 s | -0.41 s | 46 | 1,500 | 6 evaluations |
+| 2 | 27.10 s | -0.72 s | 68 | 1,500 | 20 evaluations |
+| 3 | 27.18 s | -0.64 s | 47 | 1,500 | 39 evaluations |
+| 4 | 27.43 s | -0.39 s | 25 | 1,500 | 2 evaluations |
+| 5 | 27.29 s | -0.53 s | 55 | 1,500 | 18 evaluations |
+| mean ± std | 27.282 ± 0.143 s | -0.538 s | | | |
+
+Result: 27.282 +- 0.143 s (mean +- std), best 27.10, worst 27.43; 5/5 seeds beat gold; on average 0.54 s faster than my PB.
+Evaluations until it first beat gold: 17 +- 14.
+
+Files: results/comparison.md/.csv/.png, results/repeats.md/.png, results/compare/, results/repeats/

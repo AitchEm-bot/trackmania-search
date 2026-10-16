@@ -1,0 +1,21 @@
+1. Indicate the title of your project
+-------------------------------------
+
+Beating a Human Personal Best in TrackMania with Telemetry-Guided Hybrid A* Search
+
+
+2. Explain a quick brief on your topic
+--------------------------------------
+
+We will build an AI agent that searches for the fastest way to drive a track in TrackMania Nations Forever, with the goal of beating a team member's personal best (PB) time on the same map.
+
+Ordinary A* on a grid finds the shortest path, but a racing car needs the fastest one, and a real car cannot follow a grid path because of momentum, turning limits and drifting. We will therefore use kinodynamic search (Hybrid A*, the approach used for path planning in autonomous vehicles), with the game itself acting as the physics simulator:
+
+- State: the car's full simulation state (position, velocity, heading), saved and restored through the game interface.
+- Actions: a small set of driving inputs (accelerate, brake, steer left/right) held for a short time step.
+- Cost g(n): race time so far. Heuristic h(n): remaining distance to the finish divided by the car's top speed.
+- Telemetry: we record the human PB run (car position at every physics tick) and use it as a reference line to measure progress and build a stronger heuristic.
+
+We will compare A*, weighted A* and beam search on simple tarmac maps built in the track editor (no dirt, ice or jumps), at increasing lengths. Baselines are the human PB and a simpler pipeline: a grid A* path followed by a path-following controller. Metrics are final race time, nodes expanded, runtime, and race time vs search budget, measured over repeated runs.
+
+Tools: Python, TMInterface (a tool-assisted speedrun tool for TrackMania Nations Forever that provides save states, rewind and input control) connected to Python through a socket plugin, and matplotlib for analysis. All runs are done offline; nothing will be submitted to online leaderboards.

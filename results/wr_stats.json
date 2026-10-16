@@ -1,0 +1,13 @@
+{
+ "record_ms": 25230,
+ "best_ms": 25210,
+ "evals_total": 24846,
+ "accepted_total": 75,
+ "minutes": 34.91739048719406,
+ "workers": 4,
+ "first_beat_min": 1.347432266076406,
+ "first_beat_worker": "wr3-end-43",
+ "first_beat_change": "steer 3% more to the left for 280 ms at 19.69 s",
+ "first_beat_ms": 25220,
+ "first_beat_evals": 941
+}

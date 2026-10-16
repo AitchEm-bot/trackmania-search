@@ -1,0 +1,277 @@
+CHASING 27.82
+How a search algorithm learned to beat my TrackMania PB, and then the world record
+
+CSCI218 Foundations of AI, group project. Map: B01-Race, TrackMania Nations Forever.
+
+This is told from my side, from the session log of 14-15 October 2026. Times are local. The code was written and run with Claude Code, an AI coding assistant. Read the last section before you use any of this in assessed work.
+
+
+THE NUMBERS THIS STORY IS ABOUT
+-------------------------------
+
+  My PB ................................. 27.82 s
+  Gold medal ............................ 27.80 s
+  AI, first search (beam search) ........ 27.66 s
+  AI, main pipeline (the run in the video) 27.28 s
+  AI, best single run ................... 27.10 s
+  Author medal .......................... 26.20 s
+  World record (oli10, human) ........... 25.23 s
+  AI, starting from the world record .... 25.21 s
+
+
+1. AN IDEA ON A COURSE BRIEF  (14 Oct, 20:44)
+---------------------------------------------
+
+It started with the CSCI218 project guidelines and a question: could we use TrackMania telemetry and A* to find the best path for the car and beat my personal best? I wanted a map without dirt or other tricky surfaces, to keep it simple.
+
+The first answer changed the idea. A* on a grid finds the shortest path, but a race needs the fastest one. A real car also can't follow a grid path: it has momentum and a turning circle, and it slides. The version that could actually win was a search over the game's own physics: save the car's exact state, try a few inputs, rewind, try others, and keep the fastest. That's Hybrid A*, the kind of planner used for self-driving cars. Our proposal said exactly that. It used grid A* as a baseline and simple custom tarmac maps as the test tracks.
+
+
+2. THE WRONG GAME, AND THE MOD QUESTION  (20:51 - 22:02)
+--------------------------------------------------------
+
+Two problems showed up fast.
+
+First, the new Trackmania (2020) can't save and rewind the car. The only tool that can is TMInterface, and it only works on the old TrackMania Nations Forever (TMNF). So I installed TMNF from Steam. It came as version 2.11.16, and TMInterface needs 2.11.26, so I patched it.
+
+Second, TMInterface loads through ModLoader, a tool that injects code into the game. I wasn't comfortable with that, and said so: "I'm uncomfortable with all the mods". Chrome blocked the download too. So we slowed down and checked it properly:
+
+- The file's SHA-256 fingerprint matched a fresh copy from the official page, so nobody had tampered with it on the way.
+- VirusTotal flagged it on 27 of 68 engines, which looked bad. Up close, it wasn't:
+  - Seven of the flags were really one detection: seven products that share BitDefender's scanning engine.
+  - Most of the rest were machine-learning guesses rather than named malware.
+  - The specific labels ("Gamehack", "PUA") describe what a mod loader does anyway.
+- Kaspersky, ESET, Malwarebytes and other major engines found nothing.
+- In VirusTotal's sandbox, it only contacted Microsoft and TrackMania mod sites.
+
+At 21:56 I decided to go ahead. By 22:02 the game was running with the TMInterface console on screen. I asked Claude to do the whole thing and try to beat gold, and I left the laptop.
+
+
+3. TEACHING THE GAME TO TALK TO PYTHON  (22:05 - 22:35)
+-------------------------------------------------------
+
+The search needed a bridge: a small plugin inside the game that Python could talk to over a local connection, to save states, rewind, press keys and read where the car is. Three things went wrong before it worked:
+
+- The first plugin silently didn't load. TMInterface shows no error when a plugin fails to compile, so Claude dropped in tiny test plugins, each listening on its own port, to see which piece broke. The culprit was one line: a type declaration that only compiles when written as "auto".
+- The map wouldn't load. TMInterface builds its list of maps when the game starts, and the map file had been copied in afterwards. Restarting the game fixed it.
+- The "race start" snapshot was being saved before the restart had actually happened, so the race clock jumped around. It now waits for the countdown first.
+
+Along the way, Claude found a replay the game had autosaved of me driving B01-Race: 27.82 s, checkpoints at 6.20 and 17.55, keyboard only. The replay file also contains the map itself, and that's where the medal times came from. Gold is 27.80, so I was 0.02 s off gold. That settled the target. Instead of building a custom map, we used B01-Race: a real campaign map, with a jump near the end.
+
+The key test passed at about 22:35. Claude re-drove my exact key presses through the plugin, one 10 ms tick at a time, and the run finished at exactly 27.820. Same inputs, same result, every time. The game is deterministic, which means it can be used as a simulator.
+
+
+4. THE FIRST SEARCH: BEAM SEARCH  (22:39 - 23:37)
+-------------------------------------------------
+
+The first algorithm was a beam search:
+- Every 50 ms the car picks one of 8 key combinations.
+- After each step the search keeps only the 40 most promising runs, ranked by how far ahead of my ghost they are.
+
+For scale: 8 choices over 556 steps is about 10^502 possible runs, so the search has to throw almost all of them away.
+
+With the game's graphics switched off it ran at about 150 steps a second. To me, looking at the window, it looked broken: "it's js tweaking in black". It wasn't. The game was being rewound about 130 times a second.
+
+The progress messages told a story of their own. At the first corner the best line got 45 ms ahead of me, then lost all of it by checkpoint 1. The same thing happened again between 8 and 11 s. Lines that carried extra speed into a turn looked best for the next fraction of a second, then lost everything in the turn. That's the classic weakness of a short-sighted (greedy) search.
+
+Then came the scare. Twice, while the finished run was being checked, the game registered a test run as a real finish:
+- The first was a 27.83, slower than my PB, so nothing changed.
+- The second re-drove my own inputs, and it overwrote my autosaved PB replay with a corrupted copy.
+
+Claude had backed that replay up at the very start, so the original was restored and its fingerprint matched. The cause was a TMInterface quirk: blocking the finish only works from one specific moment in the game's code. It was fixed and tested, and my replay stayed untouched for the rest of the project.
+
+The rerun produced identical numbers at every progress check, which confirmed the determinism again. At 23:37 it finished at 27.66 s: gold beaten by 0.14 s.
+
+Where the time came from: the AI drove my line almost exactly until the final drop.
+- Before landing, it braked and coasted for 0.2 s, and touched down at 277 km/h instead of my 329.
+- That let it hold about 275 km/h through the curve after the landing, where I dropped to 217.
+- It lost 60 ms on the drop and gained 220 ms after it, which nets the 0.16 s.
+
+
+5. MORE TIME: LOCAL SEARCH  (23:44 - 00:19)
+-------------------------------------------
+
+I asked for more time, and for video clips from different camera angles.
+
+The second algorithm was local search, also called hill climbing:
+1. Start from the best run so far.
+2. Make one small change: press a key a few ticks earlier, add a short tap, or release the brake sooner.
+3. Replay the run to the finish.
+4. Keep the change only if the finish time improves.
+
+In 30 minutes it went 27.66, then 27.65, then 27.64, then a single 70 ms jump to 27.57, and then down mostly 10 ms at a time to 27.42.
+
+Lesson learned: at one point the search froze because the game window was minimised. TMNF stops its game loop when minimised. Behind other windows is fine.
+
+
+6. WATCHING IT DRIVE  (00:20 - 00:58)
+-------------------------------------
+
+For the video, the game had to render at 1920x1080. That took a few rounds ("bruh I swear I did it"). I had set it; Claude was checking the wrong settings file.
+
+Then I watched the recording and said what I saw: "I'm pretty sure it's doing a bad job". I was right. The recorder played the AI's inputs back as a TMInterface script, and that playback drifted out of sync with the searched run, so the car really was driving badly. Played through the plugin instead, at full speed with normal graphics, the run finished at 27.42 as it should. Recording was later rewritten to step the car through the plugin, the same way the search does.
+
+Once I could watch it properly, I gave my feedback as the driver:
+- The beginning could be faster. The gold ghost takes the early turns quicker.
+- In the turns before the end, it brakes and slides. It should lift off the throttle and let the turn slow the car naturally, without drifting.
+- The middle, the way it cuts corners, is perfect. And don't mess up the jump.
+
+Claude turned that into new moves for the search:
+- "lift instead of brake" and "brake to coast";
+- searching just one section of the run;
+- a time shift that re-lines-up the rest of the run after an early change.
+
+The search can only keep a change that improves the finish, so the middle and the jump were safe. At 00:58 I paused everything.
+
+
+7. FOUR GAMES AT ONCE  (02:15 - about 03:10)
+--------------------------------------------
+
+At 02:35 I paused my CPU-heavy research job for an hour to free up the machine. Claude started four copies of the game, each on its own port, and ran four local-search workers that shared their best run through a file. One worked on the first 20 s, one on the middle, one on the end, and one on the whole run. I also asked for every accepted change to be logged: when it was found, how many tries it took, and what it changed. That log became the learning curve and the tweak table in the video and the deck.
+
+What the data said about my feedback:
+- The start had nothing in it. The worker on the first 20 s tried over 4,000 changes and kept none. A change there has to survive the whole rest of the run, and none did.
+- The end was where the time was, but not for the reason I thought:
+  - "Lift" moves were tried 4,335 times and "brake to coast" 627 times. Not one was kept.
+  - Almost all the gains came from the last six seconds, and most were throttle timing: getting back on the throttle sooner rather than lifting more. One example: pressing the throttle 20 ms earlier at 21.55 s saved 30 ms.
+- The middle and the jump were left alone, as I wanted.
+
+After 86 minutes of searching in total (beam, local, then four games), the main pipeline reached 27.28 s, 0.54 s faster than my PB. That's the run in the video.
+
+
+8. A BIGGER TARGET: THE WORLD RECORD  (02:40 - 04:59)
+-----------------------------------------------------
+
+I sent a screenshot of the world record, and a helper agent confirmed it on TMNF-X: 25.23 s by oli10, set on 23 Sep 2024 by a human driver, on a leaderboard that only accepts real driven runs. A tool-assisted record of 21.55 also exists, but it takes a different route, so it isn't comparable. I asked for the WR to go in the deck, and to "try our best to beat it".
+
+Our search only fine-tunes an existing line, so it was never going to find two seconds on my line. The plan was to give it oli10's line instead: download his replay, re-drive it, and let the search work on that.
+
+Then the world-record attempt stalled for 90 minutes. Claude asked for my OK to download the replay, and I wasn't at the laptop. I answered at 04:20 with: "don't ask me questions again that will stall progress cause I won't be attending the laptop". From then on it worked through without asking.
+
+The WR replay was trickier than mine:
+- oli10 drove with an analog gamepad, so his steering is a number between -65536 and 65536, not a key press.
+- The first re-drive crashed early. It turned out replays store steering with the opposite sign to TMInterface. With the sign flipped, it re-drove to exactly 25.230.
+
+Four workers started from 25.230 at about 04:24. After 941 tries (1.3 minutes), one of them found 25.22 by steering 3% more to the left for 280 ms at 19.69 s. By 04:35 it was at 25.21, 0.02 s under the world record. In total that was 24,846 tries in 35 minutes, with 75 changes kept.
+
+To be clear about what this means: the AI didn't find a better line on its own. It started from the best line any human has driven on this map and polished its timing by 20 ms. That's still a real result. It's also tool-assisted, so it stays offline.
+
+
+9. LIGHTS, CAMERA  (04:47 - 05:20)
+----------------------------------
+
+At 04:47 I described the story I wanted the presentation to tell:
+1. The AI was meant to beat me and beat gold, and it did.
+2. We watched it drive, gave feedback, and pushed it to 27.28.
+3. Then we got ambitious: we took the world record as the reference, matched it, and beat it.
+
+I asked for multi-angle video, some editing, and a motion-design intro made in Claude Design. Everything TrackMania-related had to be closed before my research restarted at 05:15.
+
+- A browser agent made the 15.7 s intro in Claude Design. Its design canvas can't export video, so Claude Design built the animation as a web page and recorded it to MP4.
+- At 05:00 the world-record workers finished, and recording started on all four games: the AI from three cameras, my PB, oli10's WR, and the AI's 25.21.
+- Two things went wrong:
+  - At 05:01 an old automation script that was still running closed the games mid-recording.
+  - Two of the re-recorded clips showed the car sitting still at the start, because each new game window has to be clicked into once before it accepts inputs.
+  Both were redone.
+- TrackMania was closed at 05:09. The final video (2 min 16 s, 1080p, 60 fps) finished rendering at about 05:19, a few minutes after my restart time.
+
+
+10. DOING THE SCIENCE PROPERLY  (05:23 - 09:45)
+-----------------------------------------------
+
+The summary listed two gaps the marking rubric cares about, and my first reaction was "what does that even mean repeated runs?". It means running the same experiment several times with different random seeds and reporting the average and the spread, so nobody can say you got lucky once. I asked for it on one game only, since my research job was running again, and went to sleep.
+
+Overnight, on one game, three experiments ran.
+
+1. A* finally got built, and it lost.
+   This was the algorithm from our proposal, and it's the one that failed. Every A* and weighted A* variant got the same budget the winning beam search had needed (180,000 game steps). None of them got past 12% of the 2,104 m track:
+   - With the "safe" heuristic, A* tried almost every option at each moment before moving on, and covered 71 m. That heuristic assumes the car can do the remaining distance at 1000 km/h, so it never overestimates.
+   - Weighting that heuristic (w = 5 and w = 20) made it charge down slow branches that the pruning then cut. It reached 100 m and 229 m.
+   - Using my PB's remaining time as the heuristic left thousands of options tied at 27.82, a plateau it couldn't climb off. It reached 198 to 258 m.
+   Memory was a limit too. Every option A* keeps open is a full saved game state (about 9 KB) inside a 32-bit game.
+
+2. Beam width matters.
+   Beams of width 1, 10 and 20 all finished at exactly 27.82, no better than my PB. Only width 40 found the 0.16 s. Width 10, run twice, gave identical inputs and exactly 49,534 steps both times, which shows the whole setup is deterministic.
+
+3. Repeated runs.
+   Local search straight from my PB, 5 seeds, 1,500 tries each, about 13 minutes per seed on one game. The results were 27.41, 27.10, 27.18, 27.43 and 27.29 s, which is 27.28 ± 0.14 s. All five beat gold, after 17 tries on average (2 tries at the quickest).
+
+The surprise was seed 2: 27.10 s in 13 minutes on one game, faster than the 86-minute, four-game pipeline. The spread between seeds (27.10 to 27.43) is exactly what repeated runs are meant to show. In every seed, one big change (0.16 to 0.32 s, somewhere between 17.1 and 22.3 s into the race) did most of the work. Most of the smaller changes were steering, not throttle.
+
+While the batch ran, the rest got built:
+- a 21-slide deck in Claude Design, with six videos and speaker notes;
+- a draft report in the structure the guidelines require;
+- 17 offline tests plus 2 tests that run in the game;
+- an updated README.
+
+The game was closed at 09:46. My PB replay was checked again and hadn't changed.
+
+
+11. WHAT WE LEARNED
+-------------------
+
+- The plan and the winner were different. We proposed A*, and A* was the clear loser. With 10 ms physics, momentum and a 27-second race, a heuristic that is guaranteed safe is far too optimistic, so A* keeps exploring sideways. The methods that worked commit early: a wide beam first, then hill climbing on a complete run.
+- Short-sighted ranking loses corners. A line that looks faster for 0.3 s often loses everything in the next turn. The beam needed a width of 40 before it found anything.
+- Local search is cheap and strong, but random. The same method gave 27.10 or 27.43 depending on the seed, so one run tells you very little.
+- A human eye caught a real bug. "It's doing a bad job" was correct: the script playback was broken.
+- My driving intuition was half right. The start had no easy time in it, but the end did. The fix there was throttle timing, not lifting.
+- Determinism made everything possible. The same inputs always give the same result, to the millisecond. That's why every time in this story could be checked by re-running it from the start line.
+- Back up before experimenting. The PB replay was overwritten once, and the backup saved it.
+- The honest limit: every result polishes an existing line, mine or oli10's. The search never invents a new route.
+
+
+12. THE TIMELINE AT A GLANCE
+----------------------------
+
+  14 Oct
+  20:44   Idea: A* plus telemetry to beat my PB
+  21:13   TMNF installed, then patched to 2.11.26
+  21:56   Decided to use ModLoader after the hash and VirusTotal checks
+  22:17   Plugin working (after the silent compile error)
+  22:35   My 27.82 re-driven exactly through the plugin
+  22:39   Beam search starts
+  23:00   Two accidental finishes; PB replay restored from backup
+  23:37   Beam search: 27.66, gold beaten
+
+  15 Oct
+  00:13   Local search: 27.42
+  00:44   "It's doing a bad job" (the script playback bug)
+  00:49   My driving feedback
+  00:58   Paused
+  02:15   Resumed
+  02:38   Four games, four workers
+  02:47   I ask to try to beat the world record; Claude asks to download the WR replay
+  03:10   Main pipeline reaches 27.28 (about)
+  04:20   I answer the download question (90 minutes later)
+  04:24   World-record search starts from 25.230
+  04:35   25.21: 0.02 s under the world record
+  04:47   I describe the story for the presentation
+  05:00 - 05:09   Recordings on four games; TrackMania closed
+  05:19   Final video rendered
+  05:27   "Set up the repeated runs on one instance", then sleep
+  05:50   Overnight batch starts on one game
+  07:33   Seed 2: 27.10, the best run from my PB
+  09:45   Batch done: A* comparison and repeated runs complete
+  09:46   Game closed, PB replay checked unchanged
+
+
+13. WHERE EVERYTHING IS
+-----------------------
+
+  Final video ........ video\B01_AI_vs_PB_and_WR.mp4
+  Deck ............... https://claude.ai/design/p/04b4cb4c-11ce-4e6c-b505-b7b00978b8f9
+                       (offline copies in deck\claude_design\)
+  Report draft ....... report\CSCI218_B01_report_DRAFT.docx
+  Results ............ results\experiments_summary.txt, comparison.md, repeats.md, tweaks.md
+  Best runs .......... results\repeats\local_seed2_rep_27100.json (27.10)
+                       results\local_seed31_w1b-start_27280.json (27.28, the video run)
+                       results\local_seed41_wr1-start_25210.json (25.21)
+  How to run it ...... README.md
+
+
+14. HONESTY NOTES
+-----------------
+
+- AI use. Claude Code (an AI coding assistant) wrote and ran most of the code, the experiments, the report draft and the deck prompts. My part was the PB, the decisions, the safety checks and the driving feedback. CSCI218 has rules about AI tools, so declare this the way the subject asks, and rewrite anything you submit in your own words.
+- Team. This story only covers my sessions. The rest of the team's work and the individual reflections still need to be added.
+- Fair play. Every AI run here is tool-assisted. None of them were uploaded, and none should be. The 25.21 started from oli10's replay; he's credited as the world-record holder, and it isn't a world-record claim.

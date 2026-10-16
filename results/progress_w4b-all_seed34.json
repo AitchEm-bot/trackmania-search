@@ -1,0 +1,803 @@
+{
+ "worker": "w4b-all-34",
+ "window": null,
+ "warp": true,
+ "best_ms": 27280,
+ "started_at": 1792017885.4462545,
+ "evaluations": 5458,
+ "accepted": 16,
+ "moves": {
+  "tap": [
+   3444,
+   7
+  ],
+  "shift": [
+   1112,
+   9
+  ],
+  "lift": [
+   826,
+   0
+  ],
+  "brake->lift": [
+   76,
+   0
+  ]
+ },
+ "progress": [
+  {
+   "t_s": 0.0,
+   "evals": 0,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 30.4,
+   "evals": 81,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 60.4,
+   "evals": 166,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 90.7,
+   "evals": 254,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 120.8,
+   "evals": 342,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 150.8,
+   "evals": 424,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 181.5,
+   "evals": 503,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 211.6,
+   "evals": 565,
+   "accepted": 3,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 241.7,
+   "evals": 637,
+   "accepted": 4,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 271.8,
+   "evals": 720,
+   "accepted": 5,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 301.9,
+   "evals": 812,
+   "accepted": 7,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 332.0,
+   "evals": 901,
+   "accepted": 7,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 362.1,
+   "evals": 981,
+   "accepted": 7,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 392.1,
+   "evals": 1073,
+   "accepted": 8,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 422.2,
+   "evals": 1162,
+   "accepted": 8,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 452.5,
+   "evals": 1249,
+   "accepted": 9,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 483.1,
+   "evals": 1326,
+   "accepted": 9,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 513.2,
+   "evals": 1403,
+   "accepted": 9,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 543.4,
+   "evals": 1486,
+   "accepted": 9,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 573.7,
+   "evals": 1556,
+   "accepted": 9,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 603.8,
+   "evals": 1635,
+   "accepted": 11,
+   "best_ms": 27330
+  },
+  {
+   "t_s": 634.0,
+   "evals": 1710,
+   "accepted": 11,
+   "best_ms": 27320
+  },
+  {
+   "t_s": 664.4,
+   "evals": 1792,
+   "accepted": 11,
+   "best_ms": 27320
+  },
+  {
+   "t_s": 694.4,
+   "evals": 1877,
+   "accepted": 11,
+   "best_ms": 27320
+  },
+  {
+   "t_s": 724.8,
+   "evals": 1976,
+   "accepted": 11,
+   "best_ms": 27320
+  },
+  {
+   "t_s": 754.9,
+   "evals": 2072,
+   "accepted": 12,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 785.0,
+   "evals": 2172,
+   "accepted": 12,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 815.5,
+   "evals": 2269,
+   "accepted": 12,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 845.6,
+   "evals": 2366,
+   "accepted": 12,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 875.9,
+   "evals": 2455,
+   "accepted": 12,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 905.9,
+   "evals": 2550,
+   "accepted": 14,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 936.1,
+   "evals": 2663,
+   "accepted": 15,
+   "best_ms": 27300
+  },
+  {
+   "t_s": 966.1,
+   "evals": 2749,
+   "accepted": 15,
+   "best_ms": 27290
+  },
+  {
+   "t_s": 996.6,
+   "evals": 2842,
+   "accepted": 15,
+   "best_ms": 27290
+  },
+  {
+   "t_s": 1027.0,
+   "evals": 2943,
+   "accepted": 15,
+   "best_ms": 27290
+  },
+  {
+   "t_s": 1057.2,
+   "evals": 3033,
+   "accepted": 15,
+   "best_ms": 27290
+  },
+  {
+   "t_s": 1087.3,
+   "evals": 3133,
+   "accepted": 15,
+   "best_ms": 27290
+  },
+  {
+   "t_s": 1117.4,
+   "evals": 3223,
+   "accepted": 15,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1147.5,
+   "evals": 3330,
+   "accepted": 15,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1178.0,
+   "evals": 3429,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1208.3,
+   "evals": 3529,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1238.3,
+   "evals": 3621,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1268.5,
+   "evals": 3724,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1298.7,
+   "evals": 3822,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1328.7,
+   "evals": 3914,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1358.7,
+   "evals": 4017,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1389.0,
+   "evals": 4118,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1419.1,
+   "evals": 4218,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1449.1,
+   "evals": 4323,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1479.6,
+   "evals": 4412,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1510.1,
+   "evals": 4517,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1540.6,
+   "evals": 4609,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1571.1,
+   "evals": 4710,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1601.2,
+   "evals": 4810,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1631.4,
+   "evals": 4917,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1661.6,
+   "evals": 5015,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1691.7,
+   "evals": 5114,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1722.0,
+   "evals": 5206,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1752.3,
+   "evals": 5300,
+   "accepted": 16,
+   "best_ms": 27280
+  },
+  {
+   "t_s": 1782.8,
+   "evals": 5398,
+   "accepted": 16,
+   "best_ms": 27280
+  }
+ ],
+ "tweaks": [
+  {
+   "t_s": 196.5,
+   "evals": 538,
+   "kind": "tap",
+   "change": "tap steer-right for 70 ms at 25.15 s",
+   "race_time_s": 25.15,
+   "first_tick": 2515,
+   "last_tick": 2522,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.002,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 207.4,
+   "evals": 554,
+   "kind": "tap",
+   "change": "tap steer-left for 40 ms at 23.11 s",
+   "race_time_s": 23.11,
+   "first_tick": 2311,
+   "last_tick": 2315,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.168,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 209.6,
+   "evals": 560,
+   "kind": "shift",
+   "change": "brake press 10 ms later at 23.69 s",
+   "race_time_s": 23.69,
+   "first_tick": 2369,
+   "last_tick": 2370,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.058,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 219.0,
+   "evals": 578,
+   "kind": "shift",
+   "change": "steer-left press 30 ms later at 23.25 s",
+   "race_time_s": 23.25,
+   "first_tick": 2325,
+   "last_tick": 2328,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.121,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 245.9,
+   "evals": 644,
+   "kind": "tap",
+   "change": "let go of steer-left for 70 ms at 23.92 s",
+   "race_time_s": 23.92,
+   "first_tick": 2392,
+   "last_tick": 2399,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.002,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 280.1,
+   "evals": 745,
+   "kind": "tap",
+   "change": "tap steer-right for 10 ms at 26.36 s",
+   "race_time_s": 26.36,
+   "first_tick": 2636,
+   "last_tick": 2637,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.002,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 301.6,
+   "evals": 811,
+   "kind": "shift",
+   "change": "steer-right press 10 ms later at 26.57 s",
+   "race_time_s": 26.57,
+   "first_tick": 2657,
+   "last_tick": 2658,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.008,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 389.7,
+   "evals": 1065,
+   "kind": "shift",
+   "change": "throttle release 20 ms later at 25.76 s",
+   "race_time_s": 25.76,
+   "first_tick": 2576,
+   "last_tick": 2578,
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27330,
+   "gain_ms": 10,
+   "tiebreak_gain_m": null,
+   "time_warp_ticks": 1
+  },
+  {
+   "t_s": 431.0,
+   "evals": 1187,
+   "kind": "shift",
+   "change": "steer-left press 40 ms earlier at 23.58 s",
+   "race_time_s": 23.54,
+   "first_tick": 2354,
+   "last_tick": 2358,
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.002,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 577.3,
+   "evals": 1569,
+   "kind": "shift",
+   "change": "steer-left press 30 ms earlier at 27.20 s",
+   "race_time_s": 27.17,
+   "first_tick": 2717,
+   "last_tick": 2720,
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.007,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 582.9,
+   "evals": 1585,
+   "kind": "shift",
+   "change": "steer-left press 40 ms earlier at 26.06 s",
+   "race_time_s": 26.02,
+   "first_tick": 2602,
+   "last_tick": 2606,
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.014,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 750.3,
+   "evals": 2053,
+   "kind": "shift",
+   "change": "throttle release 40 ms later at 25.62 s",
+   "race_time_s": 25.62,
+   "first_tick": 2562,
+   "last_tick": 2566,
+   "finish_before_ms": 27320,
+   "finish_after_ms": 27300,
+   "gain_ms": 20,
+   "tiebreak_gain_m": null,
+   "time_warp_ticks": 1
+  },
+  {
+   "t_s": 880.3,
+   "evals": 2470,
+   "kind": "tap",
+   "change": "let go of steer-left for 70 ms at 25.70 s",
+   "race_time_s": 25.7,
+   "first_tick": 2570,
+   "last_tick": 2577,
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.001,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 882.2,
+   "evals": 2479,
+   "kind": "shift",
+   "change": "steer-right press 30 ms earlier at 23.59 s",
+   "race_time_s": 23.56,
+   "first_tick": 2356,
+   "last_tick": 2359,
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.006,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 936.1,
+   "evals": 2663,
+   "kind": "tap",
+   "change": "let go of steer-left for 20 ms at 25.23 s",
+   "race_time_s": 25.23,
+   "first_tick": 2523,
+   "last_tick": 2525,
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.001,
+   "time_warp_ticks": 0
+  },
+  {
+   "t_s": 1170.5,
+   "evals": 3407,
+   "kind": "tap",
+   "change": "tap steer-right for 10 ms at 26.39 s",
+   "race_time_s": 26.39,
+   "first_tick": 2639,
+   "last_tick": 2640,
+   "finish_before_ms": 27280,
+   "finish_after_ms": 27280,
+   "gain_ms": 0,
+   "tiebreak_gain_m": 0.006,
+   "time_warp_ticks": 0
+  }
+ ],
+ "adoptions": [
+  {
+   "t_s": 60.4,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 120.8,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 181.5,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 202.4,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 242.9,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 263.0,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 303.8,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 344.5,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 364.6,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 405.0,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330
+  },
+  {
+   "t_s": 445.7,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330
+  },
+  {
+   "t_s": 465.9,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330
+  },
+  {
+   "t_s": 566.7,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330
+  },
+  {
+   "t_s": 587.3,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330
+  },
+  {
+   "t_s": 607.7,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27330
+  },
+  {
+   "t_s": 628.0,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27330,
+   "finish_after_ms": 27320
+  },
+  {
+   "t_s": 648.1,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27320,
+   "finish_after_ms": 27320
+  },
+  {
+   "t_s": 668.5,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27320,
+   "finish_after_ms": 27320
+  },
+  {
+   "t_s": 829.6,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300
+  },
+  {
+   "t_s": 849.8,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300
+  },
+  {
+   "t_s": 869.8,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300
+  },
+  {
+   "t_s": 930.9,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27300
+  },
+  {
+   "t_s": 951.0,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27300,
+   "finish_after_ms": 27290
+  },
+  {
+   "t_s": 971.1,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27290,
+   "finish_after_ms": 27290
+  },
+  {
+   "t_s": 991.4,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27290,
+   "finish_after_ms": 27290
+  },
+  {
+   "t_s": 1011.5,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27290,
+   "finish_after_ms": 27290
+  },
+  {
+   "t_s": 1051.7,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27290,
+   "finish_after_ms": 27290
+  },
+  {
+   "t_s": 1092.3,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27290,
+   "finish_after_ms": 27280
+  },
+  {
+   "t_s": 1112.5,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27280,
+   "finish_after_ms": 27280
+  },
+  {
+   "t_s": 1152.6,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27280,
+   "finish_after_ms": 27280
+  },
+  {
+   "t_s": 1233.6,
+   "from": "w3b-end-33",
+   "finish_before_ms": 27280,
+   "finish_after_ms": 27280
+  }
+ ]
+}

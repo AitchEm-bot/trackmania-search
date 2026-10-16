@@ -1,0 +1,132 @@
+{
+ "worker": "w2-mid-22",
+ "window": [
+  1000,
+  2000
+ ],
+ "warp": true,
+ "best_ms": 27390,
+ "evaluations": 693,
+ "accepted": 0,
+ "moves": {
+  "tap": [
+   457,
+   0
+  ],
+  "lift": [
+   116,
+   0
+  ],
+  "shift": [
+   120,
+   0
+  ]
+ },
+ "progress": [
+  {
+   "t_s": 0.0,
+   "evals": 0,
+   "accepted": 0,
+   "best_ms": 27420
+  },
+  {
+   "t_s": 30.6,
+   "evals": 78,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 60.6,
+   "evals": 168,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 90.6,
+   "evals": 241,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 121.0,
+   "evals": 329,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 151.4,
+   "evals": 417,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 181.6,
+   "evals": 511,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 211.9,
+   "evals": 609,
+   "accepted": 0,
+   "best_ms": 27400
+  },
+  {
+   "t_s": 242.0,
+   "evals": 693,
+   "accepted": 0,
+   "best_ms": 27390
+  }
+ ],
+ "tweaks": [],
+ "adoptions": [
+  {
+   "t_s": 20.1,
+   "from": "w3-end-23",
+   "finish_before_ms": 27420,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 40.5,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 60.6,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 80.8,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 100.9,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 121.0,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 201.8,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27400
+  },
+  {
+   "t_s": 222.0,
+   "from": "w3-end-23",
+   "finish_before_ms": 27400,
+   "finish_after_ms": 27390
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "worker": "w1-start-21",
+ "window": [
+  0,
+  1000
+ ],
+ "warp": true,
+ "best_ms": 27340,
+ "evaluations": 708,
+ "accepted": 0,
+ "moves": {
+  "tap": [
+   534,
+   0
+  ],
+  "shift": [
+   83,
+   0
+  ],
+  "lift": [
+   91,
+   0
+  ]
+ },
+ "progress": [
+  {
+   "t_s": 0.0,
+   "evals": 0,
+   "accepted": 0,
+   "best_ms": 27420
+  },
+  {
+   "t_s": 30.2,
+   "evals": 64,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 60.3,
+   "evals": 130,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 90.8,
+   "evals": 196,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 121.1,
+   "evals": 258,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 151.1,
+   "evals": 322,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 181.5,
+   "evals": 393,
+   "accepted": 0,
+   "best_ms": 27410
+  },
+  {
+   "t_s": 212.2,
+   "evals": 456,
+   "accepted": 0,
+   "best_ms": 27400
+  },
+  {
+   "t_s": 242.4,
+   "evals": 518,
+   "accepted": 0,
+   "best_ms": 27390
+  },
+  {
+   "t_s": 272.8,
+   "evals": 579,
+   "accepted": 0,
+   "best_ms": 27360
+  },
+  {
+   "t_s": 302.9,
+   "evals": 648,
+   "accepted": 0,
+   "best_ms": 27340
+  },
+  {
+   "t_s": 333.2,
+   "evals": 708,
+   "accepted": 0,
+   "best_ms": 27340
+  }
+ ],
+ "tweaks": [],
+ "adoptions": [
+  {
+   "t_s": 20.7,
+   "from": "w3-end-23",
+   "finish_before_ms": 27420,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 41.5,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 61.5,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 81.9,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 102.2,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 122.5,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27410
+  },
+  {
+   "t_s": 204.0,
+   "from": "w3-end-23",
+   "finish_before_ms": 27410,
+   "finish_after_ms": 27400
+  },
+  {
+   "t_s": 224.4,
+   "from": "w3-end-23",
+   "finish_before_ms": 27400,
+   "finish_after_ms": 27390
+  },
+  {
+   "t_s": 244.7,
+   "from": "w3-end-23",
+   "finish_before_ms": 27390,
+   "finish_after_ms": 27360
+  },
+  {
+   "t_s": 265.0,
+   "from": "w3-end-23",
+   "finish_before_ms": 27360,
+   "finish_after_ms": 27360
+  },
+  {
+   "t_s": 285.1,
+   "from": "w3-end-23",
+   "finish_before_ms": 27360,
+   "finish_after_ms": 27340
+  },
+  {
+   "t_s": 325.9,
+   "from": "w3-end-23",
+   "finish_before_ms": 27340,
+   "finish_after_ms": 27340
+  }
+ ]
+}

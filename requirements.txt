@@ -1,0 +1,6 @@
+numpy>=2.0
+matplotlib>=3.8
+lzallright>=0.3      # LZO decompression for replay files (stands in for python-lzo, which has no recent Windows wheels)
+# pygbx is installed without its dependencies (it pins python-lzo):
+#   pip install --no-deps pygbx==0.3
+python-docx>=1.1      # builds the report draft (report/make_report.py)

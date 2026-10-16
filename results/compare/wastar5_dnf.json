@@ -1,0 +1,486 @@
+{
+ "method": "wastar5",
+ "weight": 5.0,
+ "heuristic": "distance",
+ "finish_time": null,
+ "verified_finish_time": null,
+ "reference_time": 27820,
+ "medals": {
+  "bronze": 39680,
+  "silver": 31620,
+  "gold": 27800,
+  "author": 26200
+ },
+ "inputs": [],
+ "stats": {
+  "seconds": 1422.4,
+  "expansions": 180000,
+  "pops": 22500,
+  "pruned": {
+   "offset": 0,
+   "pace": 1254,
+   "checkpoint": 0,
+   "duplicate": 152652,
+   "beam": 0
+  },
+  "dropped_for_memory": 0,
+  "max_open": 3608,
+  "weight": 5.0,
+  "heuristic": "distance",
+  "v_max_kmh": 1000.0,
+  "open_cap": 20000,
+  "budget_expansions": 180000,
+  "config": {
+   "beam": 40,
+   "step_ticks": 5,
+   "actions": [
+    "G",
+    "GL",
+    "GR",
+    "-",
+    "L",
+    "R",
+    "BL",
+    "BR"
+   ],
+   "lookahead_s": 0.3,
+   "max_offset": 12.0,
+   "max_behind_ms": 600.0,
+   "cp_margin": 12.0,
+   "cell_m": 1.0,
+   "heading_bin_deg": 6.0,
+   "speed_bin": 1.5,
+   "wall_penalty_ms": 15.0,
+   "seed": 218
+  },
+  "max_progress_m": 99.5,
+  "track_length_m": 2104.0,
+  "furthest_race_time_ms": 3750,
+  "furthest_vs_pb_ghost_ms": -2.5,
+  "progress": [
+   {
+    "t_s": 30.0,
+    "expansions": 3680,
+    "pops": 460,
+    "open": 76,
+    "best_f_ms": 39015.4,
+    "max_progress_m": 16.7,
+    "popped_race_time_ms": 1400
+   },
+   {
+    "t_s": 60.1,
+    "expansions": 7528,
+    "pops": 941,
+    "open": 155,
+    "best_f_ms": 39212.2,
+    "max_progress_m": 27.4,
+    "popped_race_time_ms": 1550
+   },
+   {
+    "t_s": 90.1,
+    "expansions": 11320,
+    "pops": 1415,
+    "open": 265,
+    "best_f_ms": 39301.9,
+    "max_progress_m": 33.2,
+    "popped_race_time_ms": 2000
+   },
+   {
+    "t_s": 120.1,
+    "expansions": 14728,
+    "pops": 1841,
+    "open": 391,
+    "best_f_ms": 39350.5,
+    "max_progress_m": 36.2,
+    "popped_race_time_ms": 2050
+   },
+   {
+    "t_s": 150.2,
+    "expansions": 18872,
+    "pops": 2359,
+    "open": 494,
+    "best_f_ms": 39392.4,
+    "max_progress_m": 37.7,
+    "popped_race_time_ms": 2100
+   },
+   {
+    "t_s": 180.2,
+    "expansions": 22616,
+    "pops": 2827,
+    "open": 519,
+    "best_f_ms": 39421.4,
+    "max_progress_m": 40.9,
+    "popped_race_time_ms": 2150
+   },
+   {
+    "t_s": 210.3,
+    "expansions": 26112,
+    "pops": 3264,
+    "open": 584,
+    "best_f_ms": 39448.6,
+    "max_progress_m": 42.6,
+    "popped_race_time_ms": 2200
+   },
+   {
+    "t_s": 240.3,
+    "expansions": 30048,
+    "pops": 3756,
+    "open": 653,
+    "best_f_ms": 39475.4,
+    "max_progress_m": 46.0,
+    "popped_race_time_ms": 1900
+   },
+   {
+    "t_s": 270.3,
+    "expansions": 33968,
+    "pops": 4246,
+    "open": 677,
+    "best_f_ms": 39499.8,
+    "max_progress_m": 47.8,
+    "popped_race_time_ms": 2000
+   },
+   {
+    "t_s": 300.4,
+    "expansions": 37592,
+    "pops": 4699,
+    "open": 744,
+    "best_f_ms": 39519.5,
+    "max_progress_m": 49.6,
+    "popped_race_time_ms": 2150
+   },
+   {
+    "t_s": 330.4,
+    "expansions": 41640,
+    "pops": 5205,
+    "open": 832,
+    "best_f_ms": 39541.5,
+    "max_progress_m": 51.4,
+    "popped_race_time_ms": 2500
+   },
+   {
+    "t_s": 360.5,
+    "expansions": 45424,
+    "pops": 5678,
+    "open": 928,
+    "best_f_ms": 39558.7,
+    "max_progress_m": 53.2,
+    "popped_race_time_ms": 2500
+   },
+   {
+    "t_s": 390.5,
+    "expansions": 48992,
+    "pops": 6124,
+    "open": 952,
+    "best_f_ms": 39574.3,
+    "max_progress_m": 55.1,
+    "popped_race_time_ms": 2250
+   },
+   {
+    "t_s": 420.6,
+    "expansions": 52896,
+    "pops": 6612,
+    "open": 976,
+    "best_f_ms": 39589.9,
+    "max_progress_m": 57.0,
+    "popped_race_time_ms": 2250
+   },
+   {
+    "t_s": 450.6,
+    "expansions": 56880,
+    "pops": 7110,
+    "open": 1078,
+    "best_f_ms": 39604.5,
+    "max_progress_m": 58.9,
+    "popped_race_time_ms": 2350
+   },
+   {
+    "t_s": 480.7,
+    "expansions": 60328,
+    "pops": 7541,
+    "open": 1131,
+    "best_f_ms": 39617.7,
+    "max_progress_m": 60.9,
+    "popped_race_time_ms": 2200
+   },
+   {
+    "t_s": 510.7,
+    "expansions": 64392,
+    "pops": 8049,
+    "open": 1108,
+    "best_f_ms": 39629.5,
+    "max_progress_m": 62.8,
+    "popped_race_time_ms": 2450
+   },
+   {
+    "t_s": 540.7,
+    "expansions": 68280,
+    "pops": 8535,
+    "open": 1198,
+    "best_f_ms": 39642.6,
+    "max_progress_m": 64.8,
+    "popped_race_time_ms": 2150
+   },
+   {
+    "t_s": 570.8,
+    "expansions": 71656,
+    "pops": 8957,
+    "open": 1323,
+    "best_f_ms": 39653.5,
+    "max_progress_m": 64.8,
+    "popped_race_time_ms": 2750
+   },
+   {
+    "t_s": 600.8,
+    "expansions": 75576,
+    "pops": 9447,
+    "open": 1358,
+    "best_f_ms": 39664.2,
+    "max_progress_m": 66.8,
+    "popped_race_time_ms": 2900
+   },
+   {
+    "t_s": 630.9,
+    "expansions": 79584,
+    "pops": 9948,
+    "open": 1347,
+    "best_f_ms": 39675.1,
+    "max_progress_m": 68.9,
+    "popped_race_time_ms": 2450
+   },
+   {
+    "t_s": 660.9,
+    "expansions": 83064,
+    "pops": 10383,
+    "open": 1450,
+    "best_f_ms": 39683.8,
+    "max_progress_m": 70.9,
+    "popped_race_time_ms": 2900
+   },
+   {
+    "t_s": 690.9,
+    "expansions": 87016,
+    "pops": 10877,
+    "open": 1513,
+    "best_f_ms": 39693.6,
+    "max_progress_m": 70.9,
+    "popped_race_time_ms": 2800
+   },
+   {
+    "t_s": 721.0,
+    "expansions": 90904,
+    "pops": 11363,
+    "open": 1578,
+    "best_f_ms": 39702.8,
+    "max_progress_m": 73.0,
+    "popped_race_time_ms": 2800
+   },
+   {
+    "t_s": 751.0,
+    "expansions": 94240,
+    "pops": 11780,
+    "open": 1683,
+    "best_f_ms": 39710.8,
+    "max_progress_m": 75.1,
+    "popped_race_time_ms": 2750
+   },
+   {
+    "t_s": 781.1,
+    "expansions": 98264,
+    "pops": 12283,
+    "open": 1756,
+    "best_f_ms": 39719.5,
+    "max_progress_m": 77.3,
+    "popped_race_time_ms": 2850
+   },
+   {
+    "t_s": 811.1,
+    "expansions": 102320,
+    "pops": 12790,
+    "open": 1843,
+    "best_f_ms": 39726.7,
+    "max_progress_m": 77.3,
+    "popped_race_time_ms": 2850
+   },
+   {
+    "t_s": 841.1,
+    "expansions": 105936,
+    "pops": 13242,
+    "open": 1905,
+    "best_f_ms": 39733.7,
+    "max_progress_m": 79.4,
+    "popped_race_time_ms": 2650
+   },
+   {
+    "t_s": 871.1,
+    "expansions": 109792,
+    "pops": 13724,
+    "open": 2021,
+    "best_f_ms": 39741.7,
+    "max_progress_m": 81.6,
+    "popped_race_time_ms": 2700
+   },
+   {
+    "t_s": 901.2,
+    "expansions": 113760,
+    "pops": 14220,
+    "open": 2144,
+    "best_f_ms": 39748.8,
+    "max_progress_m": 81.6,
+    "popped_race_time_ms": 2550
+   },
+   {
+    "t_s": 931.2,
+    "expansions": 117088,
+    "pops": 14636,
+    "open": 2241,
+    "best_f_ms": 39753.5,
+    "max_progress_m": 83.8,
+    "popped_race_time_ms": 2700
+   },
+   {
+    "t_s": 961.2,
+    "expansions": 120848,
+    "pops": 15106,
+    "open": 2285,
+    "best_f_ms": 39759.2,
+    "max_progress_m": 83.8,
+    "popped_race_time_ms": 2350
+   },
+   {
+    "t_s": 991.2,
+    "expansions": 125024,
+    "pops": 15628,
+    "open": 2406,
+    "best_f_ms": 39765.4,
+    "max_progress_m": 86.1,
+    "popped_race_time_ms": 2900
+   },
+   {
+    "t_s": 1021.2,
+    "expansions": 128720,
+    "pops": 16090,
+    "open": 2500,
+    "best_f_ms": 39770.7,
+    "max_progress_m": 86.1,
+    "popped_race_time_ms": 2450
+   },
+   {
+    "t_s": 1051.2,
+    "expansions": 132576,
+    "pops": 16572,
+    "open": 2563,
+    "best_f_ms": 39776.7,
+    "max_progress_m": 88.3,
+    "popped_race_time_ms": 3050
+   },
+   {
+    "t_s": 1081.3,
+    "expansions": 136688,
+    "pops": 17086,
+    "open": 2647,
+    "best_f_ms": 39782.3,
+    "max_progress_m": 90.6,
+    "popped_race_time_ms": 3250
+   },
+   {
+    "t_s": 1111.3,
+    "expansions": 139896,
+    "pops": 17487,
+    "open": 2716,
+    "best_f_ms": 39786.3,
+    "max_progress_m": 90.6,
+    "popped_race_time_ms": 2900
+   },
+   {
+    "t_s": 1141.3,
+    "expansions": 143760,
+    "pops": 17970,
+    "open": 2803,
+    "best_f_ms": 39790.7,
+    "max_progress_m": 90.6,
+    "popped_race_time_ms": 3200
+   },
+   {
+    "t_s": 1171.4,
+    "expansions": 147984,
+    "pops": 18498,
+    "open": 2885,
+    "best_f_ms": 39794.9,
+    "max_progress_m": 92.8,
+    "popped_race_time_ms": 3100
+   },
+   {
+    "t_s": 1201.4,
+    "expansions": 151536,
+    "pops": 18942,
+    "open": 3006,
+    "best_f_ms": 39799.8,
+    "max_progress_m": 92.8,
+    "popped_race_time_ms": 2700
+   },
+   {
+    "t_s": 1231.5,
+    "expansions": 155512,
+    "pops": 19439,
+    "open": 3120,
+    "best_f_ms": 39804.7,
+    "max_progress_m": 95.0,
+    "popped_race_time_ms": 3050
+   },
+   {
+    "t_s": 1261.5,
+    "expansions": 159624,
+    "pops": 19953,
+    "open": 3175,
+    "best_f_ms": 39809.2,
+    "max_progress_m": 95.0,
+    "popped_race_time_ms": 3200
+   },
+   {
+    "t_s": 1291.5,
+    "expansions": 162976,
+    "pops": 20372,
+    "open": 3249,
+    "best_f_ms": 39812.7,
+    "max_progress_m": 97.2,
+    "popped_race_time_ms": 3400
+   },
+   {
+    "t_s": 1321.6,
+    "expansions": 166760,
+    "pops": 20845,
+    "open": 3280,
+    "best_f_ms": 39816.5,
+    "max_progress_m": 97.2,
+    "popped_race_time_ms": 3050
+   },
+   {
+    "t_s": 1351.6,
+    "expansions": 170872,
+    "pops": 21359,
+    "open": 3338,
+    "best_f_ms": 39820.6,
+    "max_progress_m": 97.2,
+    "popped_race_time_ms": 3100
+   },
+   {
+    "t_s": 1381.6,
+    "expansions": 174712,
+    "pops": 21839,
+    "open": 3466,
+    "best_f_ms": 39824.0,
+    "max_progress_m": 99.5,
+    "popped_race_time_ms": 3400
+   },
+   {
+    "t_s": 1411.7,
+    "expansions": 178592,
+    "pops": 22324,
+    "open": 3582,
+    "best_f_ms": 39827.7,
+    "max_progress_m": 99.5,
+    "popped_race_time_ms": 3300
+   }
+  ]
+ }
+}

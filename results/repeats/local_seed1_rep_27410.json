@@ -1,0 +1,1479 @@
+{
+ "finish_time": 27410,
+ "verified_finish_time": 27410,
+ "reference_time": 27820,
+ "medals": {
+  "bronze": 39680,
+  "silver": 31620,
+  "gold": 27800,
+  "author": 26200
+ },
+ "inputs": [
+  [
+   334,
+   "G"
+  ],
+  [
+   26,
+   "GR"
+  ],
+  [
+   27,
+   "G"
+  ],
+  [
+   18,
+   "GR"
+  ],
+  [
+   22,
+   "G"
+  ],
+  [
+   20,
+   "GR"
+  ],
+  [
+   22,
+   "G"
+  ],
+  [
+   21,
+   "GR"
+  ],
+  [
+   21,
+   "G"
+  ],
+  [
+   13,
+   "GR"
+  ],
+  [
+   17,
+   "G"
+  ],
+  [
+   15,
+   "GR"
+  ],
+  [
+   39,
+   "G"
+  ],
+  [
+   10,
+   "GR"
+  ],
+  [
+   17,
+   "G"
+  ],
+  [
+   8,
+   "GL"
+  ],
+  [
+   236,
+   "G"
+  ],
+  [
+   21,
+   "GR"
+  ],
+  [
+   30,
+   "G"
+  ],
+  [
+   34,
+   "GR"
+  ],
+  [
+   30,
+   "G"
+  ],
+  [
+   29,
+   "GR"
+  ],
+  [
+   11,
+   "G"
+  ],
+  [
+   21,
+   "GR"
+  ],
+  [
+   16,
+   "G"
+  ],
+  [
+   21,
+   "GR"
+  ],
+  [
+   20,
+   "G"
+  ],
+  [
+   17,
+   "GR"
+  ],
+  [
+   38,
+   "G"
+  ],
+  [
+   48,
+   "GR"
+  ],
+  [
+   15,
+   "G"
+  ],
+  [
+   14,
+   "GR"
+  ],
+  [
+   16,
+   "G"
+  ],
+  [
+   22,
+   "GR"
+  ],
+  [
+   34,
+   "G"
+  ],
+  [
+   13,
+   "GR"
+  ],
+  [
+   6,
+   "G"
+  ],
+  [
+   103,
+   "GR"
+  ],
+  [
+   18,
+   "G"
+  ],
+  [
+   110,
+   "GR"
+  ],
+  [
+   1,
+   "GL"
+  ],
+  [
+   92,
+   "GR"
+  ],
+  [
+   6,
+   "G"
+  ],
+  [
+   1,
+   "GL"
+  ],
+  [
+   2,
+   "G"
+  ],
+  [
+   18,
+   "GL"
+  ],
+  [
+   16,
+   "G"
+  ],
+  [
+   16,
+   "GL"
+  ],
+  [
+   19,
+   "G"
+  ],
+  [
+   15,
+   "GR"
+  ],
+  [
+   112,
+   "G"
+  ],
+  [
+   8,
+   "GR"
+  ],
+  [
+   29,
+   "G"
+  ],
+  [
+   1,
+   "GR"
+  ],
+  [
+   8,
+   "G"
+  ],
+  [
+   7,
+   "GR"
+  ],
+  [
+   105,
+   "G"
+  ],
+  [
+   45,
+   "GL"
+  ],
+  [
+   22,
+   "G"
+  ],
+  [
+   16,
+   "GL"
+  ],
+  [
+   40,
+   "L"
+  ],
+  [
+   2,
+   "-"
+  ],
+  [
+   24,
+   "L"
+  ],
+  [
+   69,
+   "GL"
+  ],
+  [
+   4,
+   "G"
+  ],
+  [
+   9,
+   "GR"
+  ],
+  [
+   10,
+   "G"
+  ],
+  [
+   2,
+   "GR"
+  ],
+  [
+   36,
+   "G"
+  ],
+  [
+   1,
+   "GL"
+  ],
+  [
+   45,
+   "G"
+  ],
+  [
+   5,
+   "GR"
+  ],
+  [
+   12,
+   "G"
+  ],
+  [
+   1,
+   "GL"
+  ],
+  [
+   6,
+   "G"
+  ],
+  [
+   4,
+   "GL"
+  ],
+  [
+   9,
+   "G"
+  ],
+  [
+   4,
+   "GL"
+  ],
+  [
+   8,
+   "GR"
+  ],
+  [
+   8,
+   "G"
+  ],
+  [
+   5,
+   "GL"
+  ],
+  [
+   8,
+   "G"
+  ],
+  [
+   4,
+   "GB"
+  ],
+  [
+   6,
+   "G"
+  ],
+  [
+   5,
+   "GBR"
+  ],
+  [
+   44,
+   "G"
+  ],
+  [
+   2,
+   "GR"
+  ],
+  [
+   6,
+   "GBR"
+  ],
+  [
+   1,
+   "GB"
+  ],
+  [
+   26,
+   "G"
+  ],
+  [
+   1,
+   "GB"
+  ],
+  [
+   18,
+   "G"
+  ],
+  [
+   2,
+   "GL"
+  ],
+  [
+   11,
+   "G"
+  ],
+  [
+   7,
+   "GR"
+  ],
+  [
+   65,
+   "G"
+  ],
+  [
+   27,
+   "GR"
+  ],
+  [
+   12,
+   "GL"
+  ],
+  [
+   13,
+   "G"
+  ],
+  [
+   2,
+   "GL"
+  ],
+  [
+   12,
+   "G"
+  ],
+  [
+   2,
+   "GR"
+  ],
+  [
+   18,
+   "G"
+  ],
+  [
+   20,
+   "GL"
+  ],
+  [
+   10,
+   "G"
+  ],
+  [
+   8,
+   "GR"
+  ],
+  [
+   3,
+   "G"
+  ],
+  [
+   1,
+   "GL"
+  ],
+  [
+   5,
+   "G"
+  ],
+  [
+   4,
+   "GL"
+  ],
+  [
+   3,
+   "G"
+  ]
+ ],
+ "stats": {
+  "evaluations": 1500,
+  "accepted": 46,
+  "aborted": 594,
+  "warped": 603,
+  "moves": {
+   "tap": [
+    988,
+    28
+   ],
+   "lift": [
+    225,
+    0
+   ],
+   "shift": [
+    278,
+    18
+   ],
+   "brake->lift": [
+    9,
+    0
+   ]
+  },
+  "history": [
+   [
+    1.3,
+    27810
+   ],
+   [
+    4.0,
+    27510
+   ],
+   [
+    9.9,
+    27500
+   ],
+   [
+    10.8,
+    27470
+   ],
+   [
+    19.1,
+    27470
+   ],
+   [
+    30.9,
+    27470
+   ],
+   [
+    32.2,
+    27470
+   ],
+   [
+    36.6,
+    27470
+   ],
+   [
+    38.3,
+    27470
+   ],
+   [
+    40.1,
+    27460
+   ],
+   [
+    49.9,
+    27460
+   ],
+   [
+    51.6,
+    27460
+   ],
+   [
+    78.5,
+    27460
+   ],
+   [
+    83.0,
+    27460
+   ],
+   [
+    85.5,
+    27460
+   ],
+   [
+    89.3,
+    27460
+   ],
+   [
+    106.4,
+    27460
+   ],
+   [
+    114.7,
+    27450
+   ],
+   [
+    118.9,
+    27450
+   ],
+   [
+    123.0,
+    27440
+   ],
+   [
+    151.8,
+    27440
+   ],
+   [
+    164.9,
+    27440
+   ],
+   [
+    175.8,
+    27430
+   ],
+   [
+    189.6,
+    27430
+   ],
+   [
+    207.6,
+    27430
+   ],
+   [
+    226.7,
+    27430
+   ],
+   [
+    231.7,
+    27430
+   ],
+   [
+    257.6,
+    27430
+   ],
+   [
+    260.3,
+    27430
+   ],
+   [
+    276.7,
+    27430
+   ],
+   [
+    308.5,
+    27420
+   ],
+   [
+    323.9,
+    27420
+   ],
+   [
+    331.1,
+    27420
+   ],
+   [
+    446.8,
+    27410
+   ],
+   [
+    452.0,
+    27410
+   ],
+   [
+    479.0,
+    27410
+   ],
+   [
+    481.1,
+    27410
+   ],
+   [
+    554.1,
+    27410
+   ],
+   [
+    598.3,
+    27410
+   ],
+   [
+    620.8,
+    27410
+   ],
+   [
+    635.3,
+    27410
+   ],
+   [
+    684.6,
+    27410
+   ],
+   [
+    698.4,
+    27410
+   ],
+   [
+    738.0,
+    27410
+   ],
+   [
+    755.0,
+    27410
+   ],
+   [
+    756.6,
+    27410
+   ]
+  ],
+  "budget_s": 2400.0,
+  "max_evals": 1500,
+  "seconds": 772.1,
+  "seed": 1,
+  "window": null,
+  "warp": true,
+  "start": "PB",
+  "tweaks": [
+   {
+    "t_s": 1.3,
+    "evals": 3,
+    "kind": "tap",
+    "change": "tap steer-left for 20 ms at 25.17 s",
+    "race_time_s": 25.17,
+    "first_tick": 2517,
+    "last_tick": 2519,
+    "finish_before_ms": 27820,
+    "finish_after_ms": 27810,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 4.0,
+    "evals": 6,
+    "kind": "shift",
+    "change": "steer-left release 10 ms earlier at 22.28 s",
+    "race_time_s": 22.27,
+    "first_tick": 2227,
+    "last_tick": 2228,
+    "finish_before_ms": 27810,
+    "finish_after_ms": 27510,
+    "gain_ms": 300,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 9.9,
+    "evals": 23,
+    "kind": "shift",
+    "change": "steer-left press 40 ms earlier at 26.92 s",
+    "race_time_s": 26.88,
+    "first_tick": 2688,
+    "last_tick": 2692,
+    "finish_before_ms": 27510,
+    "finish_after_ms": 27500,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 10.8,
+    "evals": 25,
+    "kind": "tap",
+    "change": "tap brake for 10 ms at 24.98 s",
+    "race_time_s": 24.98,
+    "first_tick": 2498,
+    "last_tick": 2499,
+    "finish_before_ms": 27500,
+    "finish_after_ms": 27470,
+    "gain_ms": 30,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 19.1,
+    "evals": 41,
+    "kind": "tap",
+    "change": "tap steer-left for 20 ms at 23.74 s",
+    "race_time_s": 23.74,
+    "first_tick": 2374,
+    "last_tick": 2376,
+    "finish_before_ms": 27470,
+    "finish_after_ms": 27470,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.003,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 30.9,
+    "evals": 68,
+    "kind": "shift",
+    "change": "steer-left release 10 ms later at 27.07 s",
+    "race_time_s": 27.07,
+    "first_tick": 2707,
+    "last_tick": 2708,
+    "finish_before_ms": 27470,
+    "finish_after_ms": 27470,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.064,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 32.2,
+    "evals": 71,
+    "kind": "shift",
+    "change": "steer-left press 40 ms later at 23.74 s",
+    "race_time_s": 23.74,
+    "first_tick": 2374,
+    "last_tick": 2378,
+    "finish_before_ms": 27470,
+    "finish_after_ms": 27470,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.064,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 36.6,
+    "evals": 82,
+    "kind": "tap",
+    "change": "tap steer-right for 20 ms at 22.50 s",
+    "race_time_s": 22.5,
+    "first_tick": 2250,
+    "last_tick": 2252,
+    "finish_before_ms": 27470,
+    "finish_after_ms": 27470,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.342,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 38.3,
+    "evals": 86,
+    "kind": "shift",
+    "change": "steer-right release 10 ms earlier at 26.75 s",
+    "race_time_s": 26.74,
+    "first_tick": 2674,
+    "last_tick": 2675,
+    "finish_before_ms": 27470,
+    "finish_after_ms": 27470,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.169,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 40.1,
+    "evals": 93,
+    "kind": "tap",
+    "change": "tap steer-left for 10 ms at 22.88 s",
+    "race_time_s": 22.88,
+    "first_tick": 2288,
+    "last_tick": 2289,
+    "finish_before_ms": 27470,
+    "finish_after_ms": 27460,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 49.9,
+    "evals": 115,
+    "kind": "tap",
+    "change": "tap steer-left for 10 ms at 23.51 s",
+    "race_time_s": 23.51,
+    "first_tick": 2351,
+    "last_tick": 2352,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.003,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 51.6,
+    "evals": 119,
+    "kind": "tap",
+    "change": "tap steer-left for 40 ms at 27.35 s",
+    "race_time_s": 27.35,
+    "first_tick": 2735,
+    "last_tick": 2739,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.002,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 78.5,
+    "evals": 181,
+    "kind": "tap",
+    "change": "tap steer-right for 50 ms at 23.78 s",
+    "race_time_s": 23.78,
+    "first_tick": 2378,
+    "last_tick": 2383,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.054,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 83.0,
+    "evals": 191,
+    "kind": "tap",
+    "change": "tap steer-left for 50 ms at 23.91 s",
+    "race_time_s": 23.91,
+    "first_tick": 2391,
+    "last_tick": 2396,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.002,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 85.5,
+    "evals": 197,
+    "kind": "tap",
+    "change": "tap steer-right for 80 ms at 18.51 s",
+    "race_time_s": 18.51,
+    "first_tick": 1851,
+    "last_tick": 1859,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.558,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 89.3,
+    "evals": 205,
+    "kind": "tap",
+    "change": "tap steer-left for 40 ms at 23.58 s",
+    "race_time_s": 23.58,
+    "first_tick": 2358,
+    "last_tick": 2362,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.002,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 106.4,
+    "evals": 239,
+    "kind": "tap",
+    "change": "tap brake for 70 ms at 24.65 s",
+    "race_time_s": 24.65,
+    "first_tick": 2465,
+    "last_tick": 2472,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27460,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.167,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 114.7,
+    "evals": 260,
+    "kind": "tap",
+    "change": "tap steer-left for 50 ms at 26.31 s",
+    "race_time_s": 26.31,
+    "first_tick": 2631,
+    "last_tick": 2636,
+    "finish_before_ms": 27460,
+    "finish_after_ms": 27450,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 118.9,
+    "evals": 270,
+    "kind": "shift",
+    "change": "brake press 30 ms later at 24.65 s",
+    "race_time_s": 24.65,
+    "first_tick": 2465,
+    "last_tick": 2468,
+    "finish_before_ms": 27450,
+    "finish_after_ms": 27450,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.045,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 123.0,
+    "evals": 277,
+    "kind": "tap",
+    "change": "tap steer-left for 10 ms at 15.53 s",
+    "race_time_s": 15.53,
+    "first_tick": 1553,
+    "last_tick": 1554,
+    "finish_before_ms": 27450,
+    "finish_after_ms": 27440,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 151.8,
+    "evals": 330,
+    "kind": "tap",
+    "change": "tap steer-left for 10 ms at 16.52 s",
+    "race_time_s": 16.52,
+    "first_tick": 1652,
+    "last_tick": 1653,
+    "finish_before_ms": 27440,
+    "finish_after_ms": 27440,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.259,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 164.9,
+    "evals": 357,
+    "kind": "tap",
+    "change": "tap steer-left for 40 ms at 23.71 s",
+    "race_time_s": 23.71,
+    "first_tick": 2371,
+    "last_tick": 2375,
+    "finish_before_ms": 27440,
+    "finish_after_ms": 27440,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.001,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 175.8,
+    "evals": 380,
+    "kind": "tap",
+    "change": "tap brake for 60 ms at 24.62 s",
+    "race_time_s": 24.62,
+    "first_tick": 2462,
+    "last_tick": 2468,
+    "finish_before_ms": 27440,
+    "finish_after_ms": 27430,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 189.6,
+    "evals": 413,
+    "kind": "shift",
+    "change": "steer-left press 20 ms earlier at 26.31 s",
+    "race_time_s": 26.29,
+    "first_tick": 2629,
+    "last_tick": 2631,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.263,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 207.6,
+    "evals": 452,
+    "kind": "shift",
+    "change": "brake press 30 ms later at 24.62 s",
+    "race_time_s": 24.62,
+    "first_tick": 2462,
+    "last_tick": 2465,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.009,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 226.7,
+    "evals": 490,
+    "kind": "tap",
+    "change": "let go of steer-left for 20 ms at 21.32 s",
+    "race_time_s": 21.32,
+    "first_tick": 2132,
+    "last_tick": 2134,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.094,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 231.7,
+    "evals": 501,
+    "kind": "shift",
+    "change": "steer-right release 40 ms earlier at 26.74 s",
+    "race_time_s": 26.7,
+    "first_tick": 2670,
+    "last_tick": 2674,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.139,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 257.6,
+    "evals": 548,
+    "kind": "tap",
+    "change": "tap steer-left for 10 ms at 26.55 s",
+    "race_time_s": 26.55,
+    "first_tick": 2655,
+    "last_tick": 2656,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.009,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 260.3,
+    "evals": 553,
+    "kind": "tap",
+    "change": "tap steer-right for 70 ms at 25.30 s",
+    "race_time_s": 25.3,
+    "first_tick": 2530,
+    "last_tick": 2537,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.003,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 276.7,
+    "evals": 583,
+    "kind": "tap",
+    "change": "tap brake for 50 ms at 24.14 s",
+    "race_time_s": 24.14,
+    "first_tick": 2414,
+    "last_tick": 2419,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27430,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.263,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 308.5,
+    "evals": 651,
+    "kind": "tap",
+    "change": "tap brake for 40 ms at 24.04 s",
+    "race_time_s": 24.04,
+    "first_tick": 2404,
+    "last_tick": 2408,
+    "finish_before_ms": 27430,
+    "finish_after_ms": 27420,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 323.9,
+    "evals": 679,
+    "kind": "tap",
+    "change": "tap steer-right for 10 ms at 18.88 s",
+    "race_time_s": 18.88,
+    "first_tick": 1888,
+    "last_tick": 1889,
+    "finish_before_ms": 27420,
+    "finish_after_ms": 27420,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.086,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 331.1,
+    "evals": 690,
+    "kind": "shift",
+    "change": "steer-left release 40 ms later at 26.36 s",
+    "race_time_s": 26.36,
+    "first_tick": 2636,
+    "last_tick": 2640,
+    "finish_before_ms": 27420,
+    "finish_after_ms": 27420,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.151,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 446.8,
+    "evals": 891,
+    "kind": "shift",
+    "change": "steer-left press 30 ms earlier at 20.12 s",
+    "race_time_s": 20.09,
+    "first_tick": 2009,
+    "last_tick": 2012,
+    "finish_before_ms": 27420,
+    "finish_after_ms": 27410,
+    "gain_ms": 10,
+    "tiebreak_gain_m": null,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 452.0,
+    "evals": 902,
+    "kind": "shift",
+    "change": "steer-right press 40 ms earlier at 23.78 s",
+    "race_time_s": 23.74,
+    "first_tick": 2374,
+    "last_tick": 2378,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.014,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 479.0,
+    "evals": 950,
+    "kind": "tap",
+    "change": "tap steer-right for 70 ms at 18.97 s",
+    "race_time_s": 18.97,
+    "first_tick": 1897,
+    "last_tick": 1904,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.271,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 481.1,
+    "evals": 955,
+    "kind": "shift",
+    "change": "steer-left release 10 ms later at 26.40 s",
+    "race_time_s": 26.4,
+    "first_tick": 2640,
+    "last_tick": 2641,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.037,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 554.1,
+    "evals": 1091,
+    "kind": "tap",
+    "change": "tap steer-right for 80 ms at 27.18 s",
+    "race_time_s": 27.18,
+    "first_tick": 2718,
+    "last_tick": 2726,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.013,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 598.3,
+    "evals": 1176,
+    "kind": "tap",
+    "change": "tap steer-right for 40 ms at 23.35 s",
+    "race_time_s": 23.35,
+    "first_tick": 2335,
+    "last_tick": 2339,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.008,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 620.8,
+    "evals": 1211,
+    "kind": "tap",
+    "change": "tap steer-right for 80 ms at 24.63 s",
+    "race_time_s": 24.63,
+    "first_tick": 2463,
+    "last_tick": 2471,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.008,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 635.3,
+    "evals": 1234,
+    "kind": "shift",
+    "change": "steer-right press 10 ms earlier at 23.35 s",
+    "race_time_s": 23.34,
+    "first_tick": 2334,
+    "last_tick": 2335,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.037,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 684.6,
+    "evals": 1337,
+    "kind": "shift",
+    "change": "steer-right press 30 ms later at 26.65 s",
+    "race_time_s": 26.65,
+    "first_tick": 2665,
+    "last_tick": 2668,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.055,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 698.4,
+    "evals": 1362,
+    "kind": "tap",
+    "change": "tap steer-right for 50 ms at 24.14 s",
+    "race_time_s": 24.14,
+    "first_tick": 2414,
+    "last_tick": 2419,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.01,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 738.0,
+    "evals": 1434,
+    "kind": "shift",
+    "change": "steer-left release 10 ms later at 23.74 s",
+    "race_time_s": 23.74,
+    "first_tick": 2374,
+    "last_tick": 2375,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.004,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 755.0,
+    "evals": 1466,
+    "kind": "shift",
+    "change": "steer-left press 10 ms earlier at 26.55 s",
+    "race_time_s": 26.54,
+    "first_tick": 2654,
+    "last_tick": 2655,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.005,
+    "time_warp_ticks": 0
+   },
+   {
+    "t_s": 756.6,
+    "evals": 1470,
+    "kind": "shift",
+    "change": "steer-left release 40 ms earlier at 27.34 s",
+    "race_time_s": 27.3,
+    "first_tick": 2730,
+    "last_tick": 2734,
+    "finish_before_ms": 27410,
+    "finish_after_ms": 27410,
+    "gain_ms": 0,
+    "tiebreak_gain_m": 0.001,
+    "time_warp_ticks": 0
+   }
+  ],
+  "progress": [
+   {
+    "t_s": 0.0,
+    "evals": 0,
+    "accepted": 0,
+    "best_ms": 27820
+   },
+   {
+    "t_s": 30.2,
+    "evals": 65,
+    "accepted": 5,
+    "best_ms": 27470
+   },
+   {
+    "t_s": 60.8,
+    "evals": 138,
+    "accepted": 12,
+    "best_ms": 27460
+   },
+   {
+    "t_s": 90.8,
+    "evals": 207,
+    "accepted": 16,
+    "best_ms": 27460
+   },
+   {
+    "t_s": 120.9,
+    "evals": 276,
+    "accepted": 19,
+    "best_ms": 27450
+   },
+   {
+    "t_s": 151.8,
+    "evals": 330,
+    "accepted": 21,
+    "best_ms": 27440
+   },
+   {
+    "t_s": 182.3,
+    "evals": 395,
+    "accepted": 23,
+    "best_ms": 27430
+   },
+   {
+    "t_s": 213.1,
+    "evals": 463,
+    "accepted": 25,
+    "best_ms": 27430
+   },
+   {
+    "t_s": 243.4,
+    "evals": 521,
+    "accepted": 27,
+    "best_ms": 27430
+   },
+   {
+    "t_s": 274.0,
+    "evals": 577,
+    "accepted": 29,
+    "best_ms": 27430
+   },
+   {
+    "t_s": 304.0,
+    "evals": 641,
+    "accepted": 30,
+    "best_ms": 27430
+   },
+   {
+    "t_s": 334.1,
+    "evals": 694,
+    "accepted": 33,
+    "best_ms": 27420
+   },
+   {
+    "t_s": 364.5,
+    "evals": 746,
+    "accepted": 33,
+    "best_ms": 27420
+   },
+   {
+    "t_s": 395.1,
+    "evals": 805,
+    "accepted": 33,
+    "best_ms": 27420
+   },
+   {
+    "t_s": 425.7,
+    "evals": 856,
+    "accepted": 33,
+    "best_ms": 27420
+   },
+   {
+    "t_s": 456.4,
+    "evals": 911,
+    "accepted": 35,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 486.4,
+    "evals": 967,
+    "accepted": 37,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 516.6,
+    "evals": 1025,
+    "accepted": 37,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 547.0,
+    "evals": 1075,
+    "accepted": 37,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 577.7,
+    "evals": 1136,
+    "accepted": 38,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 608.3,
+    "evals": 1190,
+    "accepted": 39,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 638.8,
+    "evals": 1240,
+    "accepted": 41,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 668.8,
+    "evals": 1300,
+    "accepted": 41,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 699.7,
+    "evals": 1364,
+    "accepted": 43,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 730.4,
+    "evals": 1421,
+    "accepted": 43,
+    "best_ms": 27410
+   },
+   {
+    "t_s": 760.6,
+    "evals": 1477,
+    "accepted": 46,
+    "best_ms": 27410
+   }
+  ],
+  "adoptions": []
+ }
+}

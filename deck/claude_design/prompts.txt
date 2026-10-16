@@ -1,0 +1,322 @@
+CLAUDE DESIGN PROMPTS - CSCI218 B01-Race final presentation
+Tool: Claude Design (https://claude.ai/design), template "Slides", model Opus 5.5
+Attached with prompt 1 (all from deck\claude_design\assets\):
+  clip0_motion_intro.mp4 + clip0_motion_intro_still.png
+  clip1_ai_run.mp4 + clip1_ai_run_still.png
+  clip2_slowmo_drop.mp4 + clip2_slowmo_drop_still.png
+  clip3_pb_vs_ai.mp4 + clip3_pb_vs_ai_still.png
+  clip4_wr_vs_ai.mp4 + clip4_wr_vs_ai_still.png
+  clip5_demo_full_720p.mp4 + clip5_demo_full_still.png
+  chart_beam_27660.png, chart_learning_curve.png, chart_line_and_gain_27280.png
+Follow-up / fix prompts are appended at the bottom as they are sent.
+
+======================================================================
+PROMPT 1 (initial build)
+======================================================================
+Sent as: the typed message below, plus the full brief (everything from "Make a 21-slide..." down to
+the end of slide 21) pasted into the prompt box, which Claude Design turned into a "Pasted text,
+199 lines" attachment because of its length.
+
+Typed message:
+Make a slide deck: build the 21-slide presentation exactly as specified in the attached pasted text (style, every slide's content, and the speaker notes for each slide), using the attached MP4 videos, PNG stills (video posters) and PNG charts where the brief says. Keep the [bracketed] placeholders visible.
+
+Pasted brief:
+Make a 21-slide, 16:9 (1920x1080) presentation for a university AI group project talk: CSCI218 Foundations of AI, UOWD, Autumn 2026. Title: "Can a search algorithm beat my Trackmania PB?". Use the exact numbers and wording below. Do not add numbers that are not in this brief.
+
+STYLE: Trackmania 2020 broadcast look.
+- Background ink #071A2C; some slides use navy #0B3256 for rhythm. Text #F1FFF6, muted #8DA2B5. Mint #6EFAA0 = the AI. Gold #E2BA12 = gold medal / human runs.
+- Headlines: Barlow Condensed 800 italic, uppercase, tight leading. Body: Inter. All times and numbers: JetBrains Mono. (Google Fonts.)
+- Motif: one thin mint stripe slanted 12 degrees near the right edge on key slides (title, why it stalled, results, WR, closing). Small mono kicker top-left on every content slide, e.g. "B01-RACE · BEAM SEARCH · 07/21", with a thin hairline under it.
+- Big hero numbers, one idea per slide, generous margins, nothing crowded, body text at least 24px. No stock photos, no emoji, no icons for decoration.
+- Videos: embed the attached MP4s with the matching PNG still as poster; muted, click to play, with controls. If video cannot be embedded, show the still with a small "VIDEO" tag.
+- Charts: use the attached PNGs as images, never redraw them.
+- Speaker notes: put the NOTES text for each slide into that slide's speaker notes (presenter notes).
+- Placeholders in square brackets, like [mean ± std] or [—], must stay visible as placeholders (muted text, dashed outline, small "RESULTS PENDING" tag): those experiments are still running and the numbers will be filled in later.
+
+SLIDES
+
+01 TITLE
+Kicker: TMNF · B01-RACE · CSCI218 FOUNDATIONS OF AI
+Headline: Can a search algorithm beat my Trackmania PB?
+Sub: An AI that drives the real game physics, tick by tick, until it finds a faster run
+Score line (mono, large): PB 27.82 → 27.28 · WR 25.23 → 25.21 (the values after the arrows in mint)
+Footer: [Team members] · UOWD · Autumn 2026
+Background: a huge faint "27.82" ghost number; mint slanted stripe.
+NOTES: Open with the question and both results. The goal was to beat my best time on B01-Race, 27.82 seconds, and the gold medal, 27.80. The AI did that and finished at 27.28. Then we got more ambitious and started it from the human world record, 25.23 by oli10: it reproduced it exactly and beat it, 25.21. Every run was checked in the real game. The ghost number in the background is my PB, the time we set out to beat.
+
+02 INTRO VIDEO
+Full-bleed clip0_motion_intro.mp4 (poster clip0_motion_intro_still.png). No other text.
+NOTES: A 15-second motion intro: my PB 27.82, the gold medal 27.80, the AI at 27.28, the human world record 25.23 by oli10, and the AI at 25.21. Let it play, then go to the goal.
+
+03 THE GOAL
+Headline: 0.02 s short of gold
+Visual: a horizontal time axis with markers (mono labels): World record 25.23 (oli10) · Author 26.20 · Gold 27.80 (gold colour) · My PB 27.82 (highlighted, with "CP 6.20 · 17.55" under it) · Silver 31.62 · Bronze 39.68.
+Caption: Can an AI search, driving the real game physics, beat my PB and the gold medal?
+NOTES: B01-Race is a map in TrackMania Nations Forever. The medal times: bronze 39.68, silver 31.62, gold 27.80, author 26.20. My personal best is 27.82, with checkpoints at 6.20 and 17.55, so I was two hundredths short of gold. The human world record is 25.23 by oli10, a normal gamepad run with no tool assistance, uploaded to TMNF-X in September 2024. Our question: can a search algorithm, driving the real game physics, beat my PB and the gold medal?
+
+04 WHY IT IS A SEARCH PROBLEM
+Headline: Find the fastest sequence of key presses through one track
+Three stats: PHYSICS TICK 10 ms · CONTROLS 4 keys · POSSIBLE RUNS ≈10⁵⁰² (mint)
+Definition row (mono labels): STATE the full car state at one tick · ACTION a key combination held for 50 ms · COST race time
+Caption: 8 key combinations every 50 ms for 27.8 s: far too many to try, so the search needs a heuristic and pruning. The game is deterministic: the same state and inputs always give the same run, so a state can be saved, branched and replayed exactly.
+NOTES: Frame it as a search problem. A state is the full car state at one physics tick. An action is a combination of the four keys held for 50 milliseconds, and the cost is race time. With 8 useful combinations every 50 ms over about 556 steps there are roughly 10 to the 502 possible runs, so exhaustive search is impossible. Determinism is what makes search possible at all: the same inputs from the same state always produce exactly the same result, so we can save a state, branch from it and replay it.
+
+05 THE SYSTEM
+Headline: The real game is the simulator
+Three numbered columns on a thin mint line (big italic 01 02 03 in mint):
+01 GAME: TrackMania Nations Forever + TMInterface 2.2.1 via ModLoader. Physics in 10 ms ticks.
+02 OUR PLUGIN: SearchBridge (AngelScript). Save and restore the car state, step the physics, stream frames, over TCP.
+03 SEARCH: tmsearch (Python). Beam search and local search drive the plugin.
+Footer (mono, muted): deterministic · bit-identical repeats · finish blocked, so no run ever counts as a record
+NOTES: The key design decision: we do not model the car. The game itself is the simulator. TMInterface 2.2.1, loaded through ModLoader, is a tool-assisted-speedrun mod that lets a plugin save and restore the full game state. We wrote our own AngelScript plugin, SearchBridge, with a small TCP protocol: save and restore a car state, step the physics with a set of keys held for N ticks, and stream frames back. Our Python package, tmsearch, runs the searches against it. The game advances in 10 ms physics ticks and is deterministic, so a state can be saved, branched and replayed exactly. The plugin blocks the finish so no search run is ever saved as a real record.
+
+06 TELEMETRY AND THE REFERENCE LINE
+Hero number: 27.820 (render "27." bright and "820" faded), label "My PB, re-driven tick by tick"
+Three columns (mono mint labels):
+01 · PARSE: every key press, checkpoint and medal time from my replay file
+02 · RE-DRIVE: the same inputs through the plugin give an identical 27.820, so our timing matches the game
+03 · REFERENCE LINE: the car's position every 10 ms. Progress along it is the heuristic and is used for pruning
+NOTES: Before searching, we validated the pipeline against reality. TMNF replays store the driver's inputs and embed the map file, which also gave us the medal times. Re-driving my run tick by tick through the plugin gave exactly 27.820 seconds, the same as the replay, so the plugin's stepping matches the game. The re-drive also gives the reference line: the car's position every 10 ms along my PB. Progress along that line is the search heuristic, and it is used to prune runs that leave the track or fall behind.
+
+07 BEAM SEARCH
+Headline: Beam search through time
+Left, a two-column table (PART / DESIGN):
+Step | 8 key combinations, each held 5 ticks (50 ms)
+Beam | keep the best 40 states in each time layer
+Score | progress along the reference line: ms ahead of my PB ghost, 0.3 s lookahead
+Prune | off the line, 0.6 s behind, missed checkpoint, duplicates
+Safety net | my own run rides along in every layer
+Right, hero: label "RESULT AFTER 20 MIN", number 27.66 (mint), "▼ −0.16 s vs PB · beats gold", "177,163 expansions"
+NOTES: Our first algorithm is a beam search layered by race time, with beam width 40. Every step holds one of 8 key combinations for 5 physics ticks, 50 ms, so all states in a layer share the same race time and can be compared fairly. The heuristic is progress along the reference line: how far ahead of my PB ghost a state is, projected 0.3 s forward using its speed. Pruning drops states that leave a corridor around my line, fall more than 0.6 s behind, or miss a checkpoint, and merges near-identical states. My own run is replayed alongside, so the result can never be worse than my PB. In 20 minutes it made 177,163 expansions and found 27.66: 0.16 s faster than my PB, already beating gold.
+
+08 WHY IT STALLED
+Headline: A lead in the first corners, gone a second later
+Left: four stats in two pairs (mono): AT 5 S +45 ms (mint) → AT 6 S ±0 ms (faded); AT 22 S +96 ms (mint) → AT 23 S ±0 ms (faded)
+Right: image chart_beam_27660.png, caption "Beam 27.66 vs my PB: the only gain is at the final drop"
+Caption: Myopic: it ranks by short-term progress. A 0.3 s lookahead rewards carrying speed into a corner, which costs time a moment later. Next: judge every change by the finish time.
+NOTES: The beam search is greedy with a short horizon. Lines that carried extra speed into a corner looked best for 0.3 seconds and then lost everything in the corner, while my steadier line survived. We saw a 45 ms lead at 5 s vanish by 6 s, and a 96 ms lead at 22 s vanish by 23 s. That is the classic myopia of beam search with a short-horizon heuristic. The chart shows where its 0.16 s came from: it follows my line almost exactly and gains only at the final drop. This motivated the second algorithm, local search, which judges every change by the finish time of the whole run.
+
+09 WE WATCHED IT DRIVE
+Headline: Gold fell in 20 minutes. Too easy.
+Left (about 55% width): video clip1_ai_run.mp4 (poster clip1_ai_run_still.png), label "VIDEO · the AI's run with its live data panel"
+Right: three rows, each "WHAT WE SAW → WHAT WE CHANGED":
+The gold ghost takes the early turns faster → time warp, and one worker per section of the track
+It brakes before the last turns and slides → new moves: lift off the throttle instead of braking
+The middle and the final jump look right → keep a change only if the whole run finishes faster
+Caption: Human review of the AI's replays became new search moves, a new evaluation and more compute.
+NOTES: After the beam search beat gold in 20 minutes, we watched its runs and gave visual feedback. Three observations turned into concrete changes. First, the gold medal ghost was taking the early turns faster, so we added time warp and gave each section of the track its own worker; honestly, none of the early tweaks turned out faster, so my early line was already close to a local optimum. Second, the AI braked before the last turns and slid, so we added moves that lift off the throttle instead of braking; the search kept 111 tweaks there, mostly getting back on the throttle sooner and staying on it longer. Third, the middle section and the final jump looked right, so we only ever keep a change if the whole run finishes faster, which protects them. The clip is the final AI run with its live data panel: race time, speed and the gap to my PB ghost.
+
+10 LOCAL SEARCH
+Headline: Hill climbing on the key presses
+Left, table (MOVE / WHAT IT DOES):
+Shift | move a key press or release by a few ticks
+Tap | add a short tap
+Lift | come off the throttle briefly
+Brake → lift | coast instead of braking
+Steer nudge / shift | adjust or move the analog steering
+Rule (muted): Kept only if the whole run finishes earlier. Rejected early once 150 ms behind.
+Right, hero: label "FROM 27.66, 30 MIN", number 27.42 (mint), "▼ −0.24 s", "4,723 evaluations · 125 accepted"
+NOTES: The second algorithm is local search: hill climbing over the input sequence. A move shifts a key press or release by a few ticks, adds a short tap, lifts off the throttle, replaces braking with lifting, or nudges or shifts the analog steering. Each candidate is re-simulated in the game from a cached state just before the change, all the way to the finish, and kept only if it finishes earlier. Candidates that fall 150 ms behind are rejected early. Unlike the beam, it judges every change by the full run, so it cannot be fooled by a short-term gain. In 30 minutes it evaluated 4,723 candidates, accepted 125, and brought the time from 27.66 to 27.42.
+
+11 PARALLEL LOCAL SEARCH
+Headline: Four games, one shared best run
+Four worker rows, each with a horizontal bar on a shared race-time axis 0 s to finish:
+GAME 1 · start, 0–10 s · no gains (grey bar)
+GAME 2 · middle, 10–20 s · no gains (grey bar)
+GAME 3 · end, 20 s–finish · 111 kept (mint bar)
+GAME 4 · whole run (lighter mint bar)
+Right or below, hero: 27.28 (mint), "▼ −0.54 s vs my PB"
+Caption: Any faster run is written to a shared best file and adopted by the others. Time warp re-aligns the rest of the run after an early change.
+NOTES: To use more CPU we ran four copies of the game, each with its own plugin port and its own search worker, sharing one best-run file. Each worker tweaked a different section of the run; whenever one found a faster run it wrote it to the shared file and the others adopted it, a simple parallel hill climb. For early changes we added time warp: after a change, the rest of the run's inputs are shifted by the number of ticks the car gained, so they line up with the track again. The results were lopsided: in the first 20 seconds no tweak was faster, while the final section produced 111 kept tweaks. Together they brought 27.42 down to 27.28, 0.54 s under my PB.
+
+12 LEARNING CURVE
+Kicker only, then the image chart_learning_curve.png as large as possible (it already has its own title and labels).
+Caption: 27.82 → 27.28 s in 86 minutes of search. Gold (27.80) fell in the first 20.
+NOTES: This is the whole optimisation on one chart: best finish time against search time. The beam search ran for 20 minutes and produced one jump from 27.82 to 27.66. Local search then made steady small steps, mostly 10 ms each, down to 27.42. The parallel phase on four game instances took it to 27.28 after 86 minutes. Gold was beaten after the first 20 minutes; the remaining gains get smaller and harder to find, which is typical of hill climbing near a local optimum.
+
+13 WHAT THE AI CHANGED
+Headline: Back on the throttle sooner, off it later
+Left, table (SAVED / AT / CHANGE), SAVED in mint:
+30 ms | 21.55 s | throttle back on 20 ms earlier
+20 ms | 25.50 s | stay on the throttle 40 ms longer
+20 ms | 25.62 s | stay on the throttle 40 ms longer
+10 ms | 23.85 s | release the brake 10 ms earlier
+10 ms | 25.60 s | a 20 ms throttle tap
+Right: video clip2_slowmo_drop.mp4 (poster clip2_slowmo_drop_still.png), label "VIDEO · the final drop in slow motion"
+Caption: The biggest kept tweaks. Each was found by trial in the game and kept only because the finish time dropped.
+NOTES: These are the largest individual changes the parallel search kept. Almost every gain is about throttle timing in the last six seconds: getting back on the throttle sooner after a turn, or staying on it a little longer before the final drop. The single biggest was pressing the throttle 20 ms earlier at 21.55 s, worth 30 ms at the finish. These are changes a human could understand and practise, even if hitting them to the hundredth is hard. The clip shows the final drop in slow motion, where most of these changes happen.
+
+14 SEARCH ALGORITHMS COMPARED (results pending)
+Headline: Search algorithms compared
+Sub (mono, muted): Same expansion budget: [budget] expansions · f = g + w·h · g = elapsed race time · h = remaining distance along the reference line ÷ top speed (admissible)
+Table (METHOD / FINISH TIME / EXPANSIONS / WALL TIME), every value a placeholder:
+A* (w = 1) | [—] | [—] | [—]
+Weighted A*, w = 1.5 | [—] | [—] | [—]
+Weighted A*, w = 2 | [—] | [—] | [—]
+Weighted A*, w = 3 | [—] | [—] | [—]
+Beam search, width 40 | [—] | [—] | [—]
+Footnote: "did not finish" = budget used up before reaching the finish line.
+Takeaway line: [one-line takeaway]
+Tag: RESULTS PENDING
+NOTES: To compare search strategies fairly we ran A*, weighted A* with w = 1.5, 2 and 3, and beam search on the same expansion budget. g is the elapsed race time; h is the remaining distance along the reference line divided by the car's top speed. The car can never cover the remaining distance faster than at top speed, so h never overestimates: it is admissible, and plain A* would find the optimal run if it had enough budget. Weighted A* multiplies h by w, which makes it greedier and faster but drops the optimality guarantee. [Fill in: which methods finished, their times, expansions and wall time, and the takeaway.]
+
+15 REPEATED RUNS (results pending)
+Headline: Repeated runs: is it luck?
+Hero (mono, large): [mean ± std] s, label "LOCAL SEARCH FROM MY PB · 5 SEEDS · SAME BUDGET EACH ([budget])"
+Two small stats: BEST [—] · WORST [—]
+Small dot plot: x axis seeds 1–5, y axis finish time; dashed reference lines for My PB 27.82 (muted) and Gold 27.80 (gold). One mint dot per seed, each labelled [—]; keep the dots on one neutral row until the numbers arrive.
+Tag: RESULTS PENDING
+NOTES: One run of a stochastic search proves little, so we repeated local search from my PB with 5 different random seeds and the same fixed budget each. We report the mean and standard deviation of the final time, plus the best and the worst seed. [Fill in: mean ± std, best, worst, and whether every seed beat gold.]
+
+16 RESULTS
+Kicker: B01-RACE · RESULTS · 16/21
+Left, hero: label "AI BEST FROM MY PB", huge "27.28" (render "27." white and "28" mint), "▼ −0.54 s vs my PB · beats gold"
+Right, mono table (RUN / TIME):
+AI on the WR line | 25.21 (mint)
+World record, oli10 | 25.23
+Author medal | 26.20
+AI from my PB: beam + local + parallel | 27.28 (mint)
+Local search | 27.42
+Beam search | 27.66
+Gold medal | 27.80 (gold)
+My PB | 27.82
+NOTES: Final result for the main experiment: starting from my own run, the AI finishes in 27.28 seconds, 0.54 s faster than my PB and 0.52 s under gold. Every time here was verified by re-running the inputs from the race start in the real game. For perspective: the author medal is 26.20 and the human world record, 25.23 by oli10, a normal driven run with no tool assistance, is still 2.05 s faster. Our search only refines the line it starts from, so it cannot discover the faster route a world-class player drives. Later: what happens when the AI starts from that world-record line instead.
+
+17 MY PB VS THE AI
+Headline: Same line, more speed at the end
+Left (about 60% width): video clip3_pb_vs_ai.mp4 (poster clip3_pb_vs_ai_still.png), label "VIDEO · my PB and the AI at the same moment in the race"
+Right: image chart_line_and_gain_27280.png with caption "The two lines from above, and where the 0.54 s was gained"
+NOTES: My PB and the AI at the same moment in the race, then the landing again at 0.4 times speed. The lines are almost identical from above; the chart on the right shows that the AI gains nothing in the early part of the track and then pulls away through the last corners and the final drop, finishing at 27.28 against my 27.82.
+
+18 THE WORLD RECORD: MATCHED, THEN BEATEN
+Kicker: B01-RACE · MORE AMBITIOUS: THE WORLD RECORD · 18/21
+Left: video clip4_wr_vs_ai.mp4 (poster clip4_wr_vs_ai_still.png), label "VIDEO · oli10's 25.23 vs the AI on his line"
+Right: hero "25.21" (render "25." white, "21" mint), "▼ −0.02 s vs 25.23, the human world record", then three short facts with mono labels:
+MATCHED: his replay re-driven in our pipeline: 25.230, exact
+BEATEN: after 941 tries (1.3 min): steer 3% more to the left for 280 ms at 19.69 s
+FINAL: 25.21 after 24,846 tries, 75 accepted, 35 min on 4 games
+Small muted line: Tool-assisted and offline: not a record, never uploaded.
+NOTES: Beating my PB turned out to be the easy part, so we got more ambitious and took on the human world record: 25.23 by oli10, a normal gamepad run uploaded to TMNF-X in September 2024. He drove with a gamepad, so we added analog steering support. Re-driven through our pipeline, his run finished at exactly 25.230, so our system reproduces the world record precisely. Then four local-search workers tweaked his inputs. The first faster run came after only 941 tries, about 1.3 minutes: steering 3 percent more to the left for 280 milliseconds at 19.69 seconds. After 24,846 tries, 75 accepted, in 35 minutes, the AI reached 25.21, 0.02 seconds under the world record. This is his line plus machine precision, and it is tool-assisted, so it is not a record and was never uploaded.
+
+19 THE RUNS ON VIDEO
+Headline (small): The runs on video
+Large video clip5_demo_full_720p.mp4 (poster clip5_demo_full_still.png), almost full width.
+Caption: Recorded in the game, one frame per physics tick, from three cameras. Click to play (2 min).
+NOTES: The demo video, about two minutes, recorded from the real game with one frame per physics tick and three camera angles. It shows the AI's 27.28 run with a live data panel and my PB ghost alongside; the last corners and the final drop in slow motion; my PB against the AI side by side; the learning curve and the tweaks the search kept; and finally oli10's 25.23 world record against the AI's 25.21 on his line. Click the frame to start it.
+
+20 LIMITATIONS
+Headline: What this does not show
+Five cards (mono mint label + one sentence):
+ONE MAP: one track, one PB. No evidence yet that it generalises.
+NO NEW ROUTES: local search refines the line it starts from; from my line it is still 2.05 s off the WR.
+TIED TO A LINE: pruning around the reference line can cut out better lines.
+PLUGIN-ONLY REPLAY: runs replay exactly through our plugin, not as TMInterface scripts.
+TOOL-ASSISTED: offline only. Finishes are blocked, so nothing reaches a leaderboard.
+NOTES: Threats to validity. One map and one PB, so we cannot claim it generalises. The local search only refines the line it starts from: from my line it is still 2.05 s off the world record, and finding new routes would need a different method. Pruning ties the search to the reference line and can cut out better lines. Exported TMInterface scripts do not reproduce the runs, so we always replay through our own plugin. All runs are tool-assisted and kept offline; the plugin blocks finishes so nothing is saved as a record.
+
+21 CLOSING
+Huge italic line: 27.82 → 27.28 (first value faded, second mint)
+Statement: Search inside the real game physics beat my best run by 0.54 s, then beat the human world record by 0.02 s starting from oli10's line.
+Next steps, three short columns: MORE MAPS: test whether it generalises · NEW ROUTES: search that is not tied to one reference line · LEARN: train a policy from these runs
+Footer: [Team members] · Questions?
+NOTES: Close on the headline: 27.82 to 27.28, a 0.54 s improvement on my best run found entirely by search in the real game; and starting from the human world record, 25.23 to 25.21. Next steps: try other maps; a search that is not tied to one reference line, so it can find new routes; and use these optimised runs as training data for a learned policy. Then take questions.
+
+======================================================================
+FOLLOW-UP / FIX PROMPTS (appended as sent)
+======================================================================
+
+----------------------------------------------------------------------
+PROMPT 2 (fixes after visual review) - attached: chart_beam_gain_only_27660.png, chart_gain_only_27280.png
+----------------------------------------------------------------------
+Great first pass. Please make these fixes and keep everything else as it is:
+1. Slide 04: the "≈10⁵⁰²" exponent renders unevenly (Unicode superscripts fall back to another font). Render it as ≈10 with a real <sup>502</sup> in the same mono font and colour.
+2. Slide 08: change the kicker to "B01-RACE · WHY IT STALLED · 08/21". Replace chart_beam_27660.png with the attached chart_beam_gain_only_27660.png (just the time-gained panel) and make it as large as the right column allows, so its axis labels are readable. Keep the mint stripe from crossing the chart (move it to the far right edge or drop it on this slide).
+3. Slide 17: replace chart_line_and_gain_27280.png with the attached chart_gain_only_27280.png and make it much larger (same height as the video), caption "Time gained on my PB ghost along the track: nothing early, then 0.54 s in the last corners and the drop".
+4. Slide 16: the hero "27.28" almost touches the table. Shrink the hero about 15% or widen the gap so there is clear space between them.
+5. Slide 18: the video box is taller than 16:9, leaving an empty band under the poster. Make the video frame exactly 16:9.
+6. Slide 20: there is a large empty gap between the headline and the cards. Move the five cards up, lay them out as a 3 + 2 grid with larger text (about 30px), so the slide feels full.
+7. Everywhere: keep numbers and units together with non-breaking spaces (e.g. "150 ms" wraps on slide 10, "4 games" on slide 18).
+8. Slide 02: autoplay the intro video (muted) when the slide becomes active, and pause it when leaving. All other videos stay click-to-play. In present mode make sure clicking a video's play control plays it instead of advancing the slide.
+
+----------------------------------------------------------------------
+PROMPT 3 (sent automatically by Share > Export > Project HTML > "Standalone HTML")
+----------------------------------------------------------------------
+Save as standalone HTML: `Trackmania Search Deck.dc.html`
+
+----------------------------------------------------------------------
+EXPORTS (no prompt text): Share > Export > PowerPoint > "Custom fonts" and "Screenshot slides";
+Share > Export > More formats > Project HTML > "Project archive". The PDF option only opens Chrome's
+print dialog, so B01_deck.pdf was printed from the exported project with headless Chrome instead
+(same print stylesheet). Videos were added to both PPTX files afterwards with python-pptx, at the
+exact positions of the <video> elements in the deck.
+
+----------------------------------------------------------------------
+PROMPT 4 (TEMPLATE, not sent yet: fill in when the overnight numbers arrive)
+----------------------------------------------------------------------
+The pending experiments are done. Fill in slides 14 and 15 with these numbers, remove both
+"RESULTS PENDING" tags and the dashed placeholder outlines, and keep everything else unchanged.
+Slide 14 (same expansion budget: <BUDGET> expansions):
+A* (w = 1) | <time or "did not finish"> | <expansions> | <wall time>
+Weighted A*, w = 1.5 | ... | ... | ...
+Weighted A*, w = 2 | ... | ... | ...
+Weighted A*, w = 3 | ... | ... | ...
+Beam search, width 40 | ... | ... | ...
+Takeaway: <one line>
+Slide 15 (local search from my PB, 5 seeds, <BUDGET> each): mean ± std = <..> s, best <..>, worst <..>,
+per seed: 1 <..>, 2 <..>, 3 <..>, 4 <..>, 5 <..>. Plot the dots at their real values on the y axis,
+with the My PB 27.82 and Gold 27.80 lines to scale.
+Replace the "[Fill in: ...]" parts of both slides' speaker notes with: <notes text>.
+
+----------------------------------------------------------------------
+PROMPT 5 (final numbers for slides 14-16) - attached: chart_repeats.png
+----------------------------------------------------------------------
+Sent as the typed message "Apply the attached update (pasted text) to slides 14, 15 and 16, using the attached
+chart_repeats.png on slide 15." plus the text below, which Claude Design turned into a pasted-text attachment.
+
+The overnight experiments are done. Update slides 14, 15 and 16 with these exact numbers and remove both "RESULTS PENDING" tags and every dashed placeholder outline on these three slides ([Team members] on slides 1 and 21 stays as it is). Keep everything else unchanged.
+
+SLIDE 14 - Search algorithms compared. Replace the placeholder table; the configurations differ from the placeholder rows.
+Sub line (mono, muted): Same game, same 8 actions held for 50 ms, same pruning · A* budget: 180,000 game steps (what beam width 40 needed to finish) · f = g + w·h, g = race time so far
+Two short heuristic definitions (mono mint label + one line each):
+DISTANCE: h = remaining reference-line length ÷ 1000 km/h (the game's speed cap). Admissible: it never overestimates.
+PB TIME LEFT: h = the time my PB still needed from that point. Better informed, but not admissible.
+Table (METHOD / HEURISTIC / RESULT / GAME STEPS / TIME). 27.66 in mint; the "did not finish" results muted:
+Beam search, width 1 (greedy) | PB ghost ranking | 27.82 (no gain) | 11,182 | 1.5 min
+Beam search, width 10 | PB ghost ranking | 27.82 (no gain) | 49,534 | 6.5 min
+Beam search, width 20 | PB ghost ranking | 27.82 (no gain) | 92,174 | 12.2 min
+Beam search, width 40 | PB ghost ranking | 27.66 | 177,163 | 19.9 min
+A* | distance | did not finish: 3% of track (71 m) | 180,000 | 23.5 min
+Weighted A*, w = 5 | distance | did not finish: 5% (100 m) | 180,000 | 23.7 min
+Weighted A*, w = 20 | distance | did not finish: 11% (229 m) | 180,000 | 23.4 min
+A* | PB time left | did not finish: 9% (198 m) | 180,000 | 24.2 min
+Weighted A*, w = 1.5 | PB time left | did not finish: 12% (258 m) | 180,000 | 23.8 min
+Weighted A*, w = 2 | PB time left | did not finish: 11% (232 m) | 180,000 | 25.4 min
+Two footnotes (small, muted): Width 10 was run twice: identical inputs, time and step count, so the game and the search are deterministic. · The A* runs shared the CPU with another job, so game steps, not minutes, is the fair cost column.
+Takeaway (white, larger than the footnotes): A* never got past 12% of the track: the admissible h makes it explore breadth-first in time, weighting makes it dive into slow branches that pruning cuts, and the PB heuristic plateaus at f ≈ 27.82. Beam search bounds the work per 50 ms layer, but only width 40 beat my PB.
+Everything must fit legibly (table text at least 22px). No chart on this slide.
+NOTES (replace slide 14's notes with): To compare search strategies fairly we gave every method the same game, the same 8 actions held for 50 ms and the same pruning. A* got a budget of 180,000 game steps, which is what beam width 40 needed to finish. f = g + w·h, where g is the race time so far. We tried two heuristics. The distance heuristic is the remaining length of the reference line divided by 1000 km/h, the game's speed cap: the car can never go faster than that, so it never overestimates and is admissible. The PB heuristic is the time my PB still needed from that point: better informed, but not admissible. No A* run finished. Plain A* with the distance heuristic covered only 3% of the track, 71 metres; the furthest, weighted A* with w = 1.5 and the PB heuristic, reached 12%, 258 metres. The admissible heuristic makes A* explore breadth-first in time, weighting makes it dive into slow branches that pruning then cuts, and the PB heuristic plateaus at f ≈ 27.82. Beam search bounds the work per 50 ms layer and always finishes, but widths 1, 10 and 20 only reproduced my 27.82; only width 40 beat it, with 27.66. Width 10 was run twice with identical inputs, time and step count, which shows the game and the search are deterministic. The A* runs shared the CPU with another job overnight, so game steps, not minutes, is the fair cost column.
+
+SLIDE 15 - Repeated runs (keep the headline "Repeated runs: is it luck?").
+Label (mono, muted): LOCAL SEARCH FROM MY PB · 5 SEEDS · 1,500 EVALUATIONS EACH (11–14 MIN EACH ON ONE GAME)
+Hero (mono, large): 27.28 ± 0.14 s, with a small label "mean ± sample std"
+Stats row: BEST 27.10 · WORST 27.43 · BEAT GOLD 5 of 5 · AVERAGE GAIN 0.54 s vs my PB
+Right: replace the placeholder dot plot with the attached chart_repeats.png (best time vs evaluations for each seed, with mean ± std), as large as fits, never redrawn.
+Takeaway: Reliable (every seed beat gold) but a wide spread: the best seed, 27.10 in 13 min on one game, beat the 86-minute four-game pipeline (27.28).
+NOTES (replace slide 15's notes with): One run of a stochastic search proves little, so we repeated local search from my PB with 5 random seeds and the same budget each: 1,500 evaluations, 11 to 14 minutes each on one game. The seeds finished at 27.41, 27.10, 27.18, 27.43 and 27.29: a mean of 27.28 with a sample standard deviation of 0.14 s, best 27.10, worst 27.43. All 5 beat gold, with an average gain of 0.54 s over my PB. So the method is reliable, but the spread is wide: the best seed, 27.10 in 13 minutes on one game, beat our 86-minute four-game pipeline at 27.28. Which improvements a hill climber finds first depends on the seed, which suggests several short restarts can be worth more than one long run.
+
+SLIDE 16 - Results.
+Change the hero label to "MAIN PIPELINE: THE RUN IN THE VIDEOS" above the big 27.28 (keep "▼ −0.54 s vs my PB · beats gold").
+Table: rename "AI from my PB: beam + local + parallel" to "AI from my PB: main pipeline (86 min, 4 games)" and add a new row between "Author medal" and that row: "Local search from my PB, best of 5 seeds (13 min, 1 game) | 27.10" in mint. Keep all other rows and keep it from crowding the hero.
+NOTES (add at the end of slide 16's notes): One more row comes from the repeated-runs experiment: the best of the 5 local-search seeds reached 27.10 in 13 minutes on one game. The big number, 27.28, is the main pipeline, the run you see in the videos.
+
+----------------------------------------------------------------------
+PROMPT 6 (polish after reviewing slides 14-16)
+----------------------------------------------------------------------
+Small polish on the updated slides; keep everything else (all numbers and text) exactly as it is:
+1. Slide 14: keep "f = g + w·h" together on one line (non-breaking), and give the takeaway more room from the bottom edge (tighten the table row height a little) so nothing sits closer than about 60px to the bottom of the slide.
+2. Slide 15: fit the hero "27.28 ± 0.14 s" on one line (a smaller size is fine), and move the small caption "vs my PB" directly under the 0.54 s value; it currently sits under "5 of 5".
+
+----------------------------------------------------------------------
+PROMPT 7 (sent automatically by Share > Export > Project HTML > "Standalone HTML", after the final numbers)
+----------------------------------------------------------------------
+Save as standalone HTML: `Trackmania Search Deck.dc.html`
