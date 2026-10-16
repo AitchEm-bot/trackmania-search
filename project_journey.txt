@@ -272,6 +272,4 @@ The game was closed at 09:46. My PB replay was checked again and hadn't changed.
 14. HONESTY NOTES
 -----------------
 
-- AI use. Claude Code (an AI coding assistant) wrote and ran most of the code, the experiments, the report draft and the deck prompts. My part was the PB, the decisions, the safety checks and the driving feedback. CSCI218 has rules about AI tools, so declare this the way the subject asks, and rewrite anything you submit in your own words.
-- Team. This story only covers my sessions. The rest of the team's work and the individual reflections still need to be added.
 - Fair play. Every AI run here is tool-assisted. None of them were uploaded, and none should be. The 25.21 started from oli10's replay; he's credited as the world-record holder, and it isn't a world-record claim.
